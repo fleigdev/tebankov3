@@ -1,0 +1,684 @@
+<script>
+/**
+ * Page-job-apply component
+ */
+export default {
+  data() {
+    return {};
+  },
+  components: {},
+};
+</script>
+
+<template>
+  <div>
+    <Navbar />
+
+    <!-- Hero Start -->
+    <section class="bg-half bg-light d-table w-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 text-center">
+            <div class="page-next-level">
+              <h4 class="title">Formulario para solicitar préstamos.</h4>
+              <div class="page-next">
+                <nav aria-label="breadcrumb" class="d-inline-block">
+                  <ul class="breadcrumb bg-white rounded shadow mb-0">
+                    <li class="breadcrumb-item  active">
+                      <router-link to="/">Paso 1</router-link>
+                    </li>
+                    <li class="breadcrumb-item">
+                      <a href="#">Paso 2</a>
+                    </li>
+                    <li class="breadcrumb-item"><a href="#">Paso 3</a></li>
+                    <li class="breadcrumb-item" aria-current="page">
+                      Paso 4
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <!--end col-->
+        </div>
+        <!--end row-->
+      </div>
+      <!--end container-->
+    </section>
+    <!--end section-->
+    <!-- Hero End -->
+
+    <!-- Shape Start -->
+    <div class="position-relative">
+      <div class="shape overflow-hidden text-white">
+        <svg
+          viewBox="0 0 2880 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      </div>
+    </div>
+    <!--Shape End-->
+
+    <!-- Job apply form Start -->
+    <section class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 col-md-7">
+            <div class="card custom-form border-0 bgcolor">
+              <h2 class="text-center pt-5">Información Básica</h2>
+              <p class="text-center ">
+                Rellena la información básica para continuar al siguiente paso.
+              </p>
+              <div class="card-body">
+                <form class="rounded shadow p-4">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Nombre Completo :</label>
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                        <input
+                          name="name"
+                          id="name"
+                          type="text"
+                          class="form-control pl-5"
+                          placeholder="First Name :"
+                        />
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Apellidos:</label>
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                        <input
+                          name="name"
+                          id="name"
+                          type="text"
+                          class="form-control pl-5"
+                          placeholder="First Name :"
+                        />
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Fecha de Nacimiento:</label>
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                        <input
+                          name="name"
+                          id="name"
+                          type="text"
+                          class="form-control pl-5"
+                          placeholder="First Name :"
+                        />
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                      </div>
+                    </div>
+                    <!--end col-->
+
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Teléfono Celular :</label>
+                        <phone-icon class="fea icon-sm icons"></phone-icon>
+                        <input
+                          name="number"
+                          id="number"
+                          type="number"
+                          class="form-control pl-5"
+                          placeholder="Your phone no. :"
+                        />
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Correo Electrónico :</label>
+                        <mail-icon class="fea icon-sm icons"></mail-icon>
+                        <input
+                          name="email"
+                          id="email"
+                          type="email"
+                          class="form-control pl-5"
+                          placeholder="Your email :"
+                        />
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Ciudad :</label>
+                        <select
+                          class="form-control custom-select"
+                          id="Sortbylist-Shop"
+                        >
+                          <option>Santa Cruz</option>
+                          <option>Cochabamba</option>
+                          <option>Tarija</option>
+                          <option>Sucre</option>
+                          <option>La Paz</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>¿Tiene un trabajo actualmente ? :</label>
+
+                        <ul class="list-unstyled mt-4 mb-0 pleft">
+                          <div class="row text-center">
+                            <div
+                              class="custom-control custom-radio custom-control-inline te"
+                            >
+                              <div class="form-group mb-0">
+                                <input
+                                  type="radio"
+                                  id="banktransfer"
+                                  checked="checked"
+                                  name="customRadio"
+                                  class="custom-control-input"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="banktransfer"
+                                  >Sí</label
+                                >
+                              </div>
+                            </div>
+
+                            <li>
+                              <div
+                                class="custom-control custom-radio custom-control-inline"
+                              >
+                                <div class="form-group mb-0">
+                                  <input
+                                    type="radio"
+                                    id="chaquepayment"
+                                    name="customRadio"
+                                    class="custom-control-input"
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    for="chaquepayment"
+                                    >No</label
+                                  >
+                                </div>
+                              </div>
+                            </li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>¿ Antigüedad laboral en meses ? :</label>
+
+                        <ul class="list-unstyled mt-4 mb-0 pleft">
+                          <div class="row text-center">
+                            <div
+                              class="custom-control custom-radio custom-control-inline te"
+                            >
+                              <div class="form-group mb-0">
+                                <input
+                                  type="radio"
+                                  id="banktransfer"
+                                  checked="checked"
+                                  name="customRadio"
+                                  class="custom-control-input"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="banktransfer"
+                                  >Sí</label
+                                >
+                              </div>
+                            </div>
+
+                            <li>
+                              <div
+                                class="custom-control custom-radio custom-control-inline"
+                              >
+                                <div class="form-group mb-0">
+                                  <input
+                                    type="radio"
+                                    id="chaquepayment"
+                                    name="customRadio"
+                                    class="custom-control-input"
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    for="chaquepayment"
+                                    >No</label
+                                  >
+                                </div>
+                              </div>
+                            </li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--end col-->
+
+                    <!--end col-->
+                    <div class="col-md-12">
+                      <div class="form-group position-relative">
+                        <label>¿ Usted aporta AFP ? :</label>
+
+                        <ul class="list-unstyled mt-4 mb-0 pleft">
+                          <div class="row text-center">
+                            <div
+                              class="custom-control custom-radio custom-control-inline te"
+                            >
+                              <div class="form-group mb-0">
+                                <input
+                                  type="radio"
+                                  id="banktransfer"
+                                  checked="checked"
+                                  name="customRadio"
+                                  class="custom-control-input"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="banktransfer"
+                                  >Sí</label
+                                >
+                              </div>
+                            </div>
+
+                            <li>
+                              <div
+                                class="custom-control custom-radio custom-control-inline"
+                              >
+                                <div class="form-group mb-0">
+                                  <input
+                                    type="radio"
+                                    id="chaquepayment"
+                                    name="customRadio"
+                                    class="custom-control-input"
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    for="chaquepayment"
+                                    >No</label
+                                  >
+                                </div>
+                              </div>
+                            </li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--end col-->
+
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Rango de ingresos menuales :</label>
+                        <select
+                          class="form-control custom-select"
+                          id="Sortbylist-Shop"
+                        >
+                          <option>0$ - 500$</option>
+                          <option>500$ - 1000$</option>
+                          <option>1000$ - 2000$</option>
+                          <option>2000$ - 5000$</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>¿ Tiene cuenta bancaria ? :</label>
+
+                        <ul class="list-unstyled mt-4 mb-0 pleft">
+                          <div class="row text-center">
+                            <div
+                              class="custom-control custom-radio custom-control-inline te"
+                            >
+                              <div class="form-group mb-0">
+                                <input
+                                  type="radio"
+                                  id="banktransfer"
+                                  checked="checked"
+                                  name="customRadio"
+                                  class="custom-control-input"
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="banktransfer"
+                                  >Sí</label
+                                >
+                              </div>
+                            </div>
+
+                            <li>
+                              <div
+                                class="custom-control custom-radio custom-control-inline"
+                              >
+                                <div class="form-group mb-0">
+                                  <input
+                                    type="radio"
+                                    id="chaquepayment"
+                                    name="customRadio"
+                                    class="custom-control-input"
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    for="chaquepayment"
+                                    >No</label
+                                  >
+                                </div>
+                              </div>
+                            </li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <!--end col-->
+                    <div class="col-md-12">
+                      <div class="form-group position-relative">
+                        <label
+                          >¿ Cuál es el monto que desea solicitar en dólares
+                          americanos ? :</label
+                        >
+                        <message-circle-icon
+                          class="fea icon-sm icons"
+                        ></message-circle-icon>
+                        <input
+                          type="text"
+                          name="comments"
+                          id="comments"
+                          rows="4"
+                          class="form-control pl-5"
+                          placeholder="Monto en USD$ :"
+                        />
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Anverso :</label>
+                        <input
+                          type="file"
+                          class="form-control-file"
+                          id="fileupload"
+                        />
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Reverso :</label>
+                        <input
+                          type="file"
+                          class="form-control-file"
+                          id="fileupload"
+                        />
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                          <input
+                            type="checkbox"
+                            class="custom-control-input"
+                            id="customCheck1"
+                          />
+                          <label class="custom-control-label" for="customCheck1"
+                            >Acepto los términos descritos a continuación
+                          </label>
+                          <p class="terms">
+                            Mediante la presente autorizo (amos) expresamente al
+                            Banco de Desarrollo Productivo-Sociedad Anónima
+                            Mixta (BDP - S.A.M) a consultar y obtener
+                            información referente a los datos, antecedentes
+                            comerciales y/o financieros de mi (nuestra)
+                            persona(s) a través de la Central de Información
+                            Crediticia (CIC) de la Autoridad de Supervisión del
+                            Sistema Financiero (ASFI), Burós de Información,
+                            Registro Único de Identificación Administrado por el
+                            Servicio General de Identificación Personal (SEGIP),
+                            el Sistema de Registro de Garantías No
+                            Convencionales (SRGNC) y otros, según corresponda.
+                            La citada consulta y obtención de información podra
+                            ser efectuada por cualquier medio físoco,
+                            documental, electrónico, magnético, informático u
+                            otros que se encuentren disponibles.
+                            <br />
+                            Declaro tener conocimiento que para solicitar un
+                            crédito con TEBANKO debo contar con los siguientes
+                            respaldos:
+                            <br />
+                            CI Vigente emitido por el SEGIP - Fuente de ingreso
+                            dependiente con al menos 6 meses de continuidad -
+                            Extracto AFP - Respaldo activos declarados - Caja de
+                            ahorro o cuenta bancaria - Tener teléfono celular y
+                            correo electrónico.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <!--end col-->
+                  </div>
+                  <!--end row-->
+                  <div class="row">
+                    <div class="col-sm-12 text-center">
+                      <input
+                        type="submit"
+                        id="submit"
+                        name="send"
+                        class="submitBnt btn btn-primary"
+                        value="Continuar"
+                      />
+                    </div>
+                    <!--end col-->
+                  </div>
+                  <!--end row-->
+                </form>
+                <!--end form-->
+              </div>
+            </div>
+            <!--end custom-form-->
+          </div>
+          <div class="col-lg-10 col-md-7">
+            <div class="card custom-form border-0 bgcolor">
+              <h2 class="text-center pt-5">Datos del Carnet</h2>
+              <p class="text-center ">
+                Completa la información básica para seguir con los pasos.
+              </p>
+              <div class="card-body">
+                <form class="rounded shadow p-4">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Nro. Carnet de Identidad :</label>
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                        <input
+                          name="name"
+                          id="name"
+                          type="text"
+                          class="form-control pl-5"
+                          placeholder="------- :"
+                        />
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Nacionalidad:</label>
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                        <input
+                          name="name"
+                          id="name"
+                          type="text"
+                          class="form-control pl-5"
+                          placeholder="ej: Boliviano :"
+                        />
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group position-relative">
+                        <label>Fecha de Vencimiento:</label>
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                        <input
+                          name="name"
+                          id="name"
+                          type="text"
+                          class="form-control pl-5"
+                          placeholder="--/--/--"
+                        />
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                      </div>
+                    </div>
+                    <!--end col-->
+
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Lugar de Nacimiento :</label>
+                        <select
+                          class="form-control custom-select"
+                          id="Sortbylist-Shop"
+                        >
+                          <option>Santa Cruz</option>
+                          <option>Cochabamba</option>
+                          <option>Tarija</option>
+                          <option>Sucre</option>
+                          <option>La Paz</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!--end col-->
+                    <!--end col-->
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>Estado civil :</label>
+                        <select
+                          class="form-control custom-select"
+                          id="Sortbylist-Shop"
+                        >
+                          <option>Soltero</option>
+                          <option>Casado</option>
+                          <option>Viudo</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!--end col-->
+                  </div>
+                  <h2 class="text-center pt-5">Datos Personales</h2>
+                  <p class="text-center ">
+                    Completa la información básica para seguir con los pasos.
+                  </p>
+
+                  !--end col-->
+                  <div class="col-md-6">
+                    <div class="form-group position-relative">
+                      <label>Fecha de Vencimiento:</label>
+                      <i class="pi pi-check"></i>
+                      <i class="pi pi-times"></i>
+                      <input
+                        name="name"
+                        id="name"
+                        type="text"
+                        class="form-control pl-5"
+                        placeholder="--/--/--"
+                      />
+                      <i class="pi pi-check"></i>
+                      <i class="pi pi-times"></i>
+                    </div>
+                  </div>
+                  <!--end col-->
+                  <!--end col-->
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Estado civil :</label>
+                      <select
+                        class="form-control custom-select"
+                        id="Sortbylist-Shop"
+                      >
+                        <option>Soltero</option>
+                        <option>Casado</option>
+                        <option>Viudo</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!--end col-->
+                  <!--end row-->
+                  <div class="row">
+                    <div class="col-sm-12 text-center">
+                      <input
+                        type="submit"
+                        id="submit"
+                        name="send"
+                        class="submitBnt btn btn-primary"
+                        value="Continuar"
+                      />
+                    </div>
+                    <!--end col-->
+                  </div>
+                  <!--end row-->
+                </form>
+                <!--end form-->
+              </div>
+            </div>
+            <!--end custom-form-->
+          </div>
+        </div>
+      </div>
+      <!--end container-->
+    </section>
+    <!--end section-->
+    <!-- Job apply form End -->
+  </div>
+</template>
+
+<style scoped>
+.bgcolor {
+  background-color: #202942;
+}
+
+.terms {
+  font-size: 11px;
+}
+
+p,
+h3,
+label,
+h2,
+h5 {
+  color: white;
+}
+.pleft {
+  padding-left: 20px;
+}
+</style>

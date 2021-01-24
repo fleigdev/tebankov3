@@ -1,0 +1,109 @@
+.VueCarousel-dot-container {
+    margin-top: 10px;
+}
+
+.VueCarousel-dot {
+    width: 10px !important;
+    height: 10px !important;
+    margin: 5px 7px !important;
+    border-radius: 3px !important;
+    transition: all 0.5s ease;
+    background: rgba(47, 85, 212, 0.5) !important;
+    padding: 0 !important;
+}
+
+.VueCarousel-dot:focus {
+    outline: none !important;
+}
+
+.VueCarousel-dot--active{
+    background-color: #2f55d4 !important;
+    transform: rotate(45deg);
+}
+.navright {
+    float: right;
+}
+
+.aligntoleft {
+    text-align: left;
+}
+
+.aligntoright {
+    text-align: right;
+}
+
+.backgroundhero {
+    background-image: url('../img/bg2.jpg');
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-size: cover;
+    background-position: right 35% bottom 90%;
+}
+
+.bgform {
+    background-image: url('../img/bgform2.jpg');
+    background-size: cover;
+}
+
+.thinkingsection {
+    background-image: url('../img/thinking.png');
+    height: 50vh;
+    background-size: cover;
+    position: relative;
+    background-position: right 35% bottom 20%;
+    
+    
+    
+}
+
+.img350 {
+    height: 375px;
+}
+
+.cardheight {
+    height: 350px;
+}
+
+.footerlogo {
+    filter: brightness(0) invert(1);
+}
+
+.smalllogos {
+    height: 35px;
+}
+
+.centerimg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+  .ultimo {
+    font-size: 3.5rem;
+    padding-bottom: 40px;
+  }
+
+  .lesspaddingsection {
+    padding: 20px 0;
+  }
+
+  .titlesection {
+    letter-spacing: 0.5px;
+    font-size: 35px !important;
+}
+
+.linea {
+    text-decoration: underline;
+}
+
+.smalltext {
+    font-size: 10px;
+}
+
+.particles canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
