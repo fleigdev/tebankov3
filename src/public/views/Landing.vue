@@ -11,7 +11,7 @@ export default {
   name: 'Landing',
   data() {
     return {
-      value: 600,
+      value: 1500,
       totalValue: 20,
     };
   },
@@ -31,8 +31,11 @@ export default {
           <div class="col-lg-6">
             <div class="title-heading mt-4">
               <h1 class="display-3 font-weight-bold mb-3">
-                Estamos contigo para alcanzar tus sueños.
+                Estamos contigo para ayudarte a alcanzar tus sueños.
               </h1>
+              <p class="para-desc text-muted font-weight-bold">
+                #YoTeBanko
+              </p>
               <p class="para-desc text-muted">
                 Solicita tu préstamo personal de manera rápida y segura, desde
                 la comodidad de tu hogar.
@@ -75,15 +78,16 @@ export default {
                 <span class="h4 mb-0 mt-2">$</span>
                 <span class="price h1 mb-0">{{ value }}</span>
               </div>
-              <vue-slider v-model="value" min="500" max="3000" />
+              <vue-slider v-model="value" min="1500" max="2000" />
 
               <ul class="list-unstyled mb-0 pl-0">
                 <li class="h5 text-muted mb-0">
-                  <span class="text-primary h5 mr-2"></span>Cuota Mensual
+                  <span class="text-primary h5 mr-2"></span>Cuota mensual por 6
+                  meses
                 </li>
                 <li class="h6 text-muted mb-0">
                   <span class="text-primary h5 mr-2"></span>
-                  $ {{ value / 2 }}
+                  $ {{ (value / 6 + value * 0.03).toFixed(2) }}
                 </li>
               </ul>
               <a href="javascript:void(0)" class="btn btn-primary mt-4"
@@ -225,8 +229,7 @@ export default {
           >
             <div class="section-title ml-lg-4">
               <h3 class="title mb-4">
-                Complete el formulario y <br />
-                obtenga una solución instantánea
+                Requisitos básicos para solicitar tu préstamo
               </h3>
 
               <ul class="list-unstyled text-muted">
@@ -238,7 +241,7 @@ export default {
                 <li class="mb-0">
                   <span class="text-primary h5 mr-2"
                     ><i class="uim uim-check-circle"></i></span
-                  >Firma digital
+                  >Respaldo de ingresos (AFP)
                 </li>
                 <li class="mb-0">
                   <span class="text-primary h5 mr-2"

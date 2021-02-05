@@ -227,74 +227,13 @@ export default {
                       </div>
                     </div>
                     <!--end col-->
-                    <div class="col-md-6">
-                      <div class="form-group position-relative">
-                        <label>¿Tiene un trabajo actualmente ? :</label>
 
-                        <ul class="list-unstyled mt-4 mb-0 pleft">
-                          <div class="row text-center">
-                            <div
-                              class="custom-control custom-radio custom-control-inline te"
-                            >
-                              <div class="form-group mb-0">
-                                <input
-                                  type="radio"
-                                  id="siTrabajaActualmente"
-                                  checked="checked"
-                                  name="radioTrabajaActualmente"
-                                  class="custom-control-input"
-                                />
-                                <label
-                                  class="custom-control-label"
-                                  for="siTrabajaActualmente"
-                                  >Sí</label
-                                >
-                              </div>
-                            </div>
-
-                            <li>
-                              <div
-                                class="custom-control custom-radio custom-control-inline"
-                              >
-                                <div class="form-group mb-0">
-                                  <input
-                                    type="radio"
-                                    id="noTrabajaActualmente"
-                                    name="radioTrabajaActualmente"
-                                    class="custom-control-input"
-                                  />
-                                  <label
-                                    class="custom-control-label"
-                                    for="noTrabajaActualmente"
-                                    >No</label
-                                  >
-                                </div>
-                              </div>
-                            </li>
-                          </div>
-                        </ul>
-                      </div>
-                    </div>
                     <!--end col-->
                     <!--end col-->
+                    <!--end col-->
+
                     <!--end col-->
                     <div class="col-md-6">
-                      <div class="form-group">
-                        <label>¿ Antigüedad laboral en meses ? :</label>
-                        <select
-                          class="form-control custom-select"
-                          id="Sortbylist-Shop"
-                        >
-                          <option>0 - 6</option>
-                          <option>7 - 12</option>
-                          <option>12 - 24</option>
-                          <option>25 +</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <!--end col-->
-                    <div class="col-md-12">
                       <div class="form-group position-relative">
                         <label>¿ Usted aporta AFP ? :</label>
 
@@ -355,59 +294,11 @@ export default {
                           <option>0$ - 500$</option>
                           <option>500$ - 1000$</option>
                           <option>1000$ - 2000$</option>
-                          <option>2000$ - 5000$</option>
+                          <option>2000$ en adelante</option>
                         </select>
                       </div>
                     </div>
-                    <!--end col-->
-                    <div class="col-md-6">
-                      <div class="form-group position-relative">
-                        <label>¿ Tiene cuenta bancaria ? :</label>
 
-                        <ul class="list-unstyled mt-4 mb-0 pleft">
-                          <div class="row text-center">
-                            <div
-                              class="custom-control custom-radio custom-control-inline te"
-                            >
-                              <div class="form-group mb-0">
-                                <input
-                                  type="radio"
-                                  id="siTieneCuentaBancaria"
-                                  checked="checked"
-                                  name="radioTieneCuenta"
-                                  class="custom-control-input"
-                                />
-                                <label
-                                  class="custom-control-label"
-                                  for="siTieneCuentaBancaria"
-                                  >Sí</label
-                                >
-                              </div>
-                            </div>
-
-                            <li>
-                              <div
-                                class="custom-control custom-radio custom-control-inline"
-                              >
-                                <div class="form-group mb-0">
-                                  <input
-                                    type="radio"
-                                    id="noTieneCuentaBancaria"
-                                    name="radioTieneCuenta"
-                                    class="custom-control-input"
-                                  />
-                                  <label
-                                    class="custom-control-label"
-                                    for="noTieneCuentaBancaria"
-                                    >No</label
-                                  >
-                                </div>
-                              </div>
-                            </li>
-                          </div>
-                        </ul>
-                      </div>
-                    </div>
                     <!--end col-->
                     <!--end col-->
                     <div class="col-md-12">
@@ -429,30 +320,7 @@ export default {
                         />
                       </div>
                     </div>
-                    <!--end col-->
-                    <div class="col-md-6">
-                      <div class="form-group position-relative">
-                        <label>Anverso :</label>
-                        <input
-                          type="file"
-                          class="form-control-file"
-                          id="fileupload"
-                        />
-                      </div>
-                    </div>
-                    <!--end col-->
-                    <!--end col-->
-                    <div class="col-md-6">
-                      <div class="form-group position-relative">
-                        <label>Reverso :</label>
-                        <input
-                          type="file"
-                          class="form-control-file"
-                          id="fileupload"
-                        />
-                      </div>
-                    </div>
-                    <!--end col-->
+
                     <div class="col-md-12">
                       <div class="form-group">
                         <div class="custom-control custom-checkbox">
@@ -530,39 +398,51 @@ export default {
                 <form class="rounded shadow p-4">
                   <div class="row">
                     <div class="col-md-6">
-                      <div class="form-group position-relative">
-                        <label>Nro. Carnet de Identidad :</label>
-                        <i class="pi pi-check"></i>
-                        <i class="pi pi-times"></i>
-                        <input
-                          name="name"
-                          id="name"
-                          type="text"
-                          class="form-control pl-5"
-                          placeholder="------- :"
-                        />
-                        <i class="pi pi-check"></i>
-                        <i class="pi pi-times"></i>
+                      <div class="row">
+                        <div class="col-md-8">
+                          <div class="form-group position-relative">
+                            <label>Nro. Carnet de Identidad :</label>
+                            <i class="pi pi-check"></i>
+                            <i class="pi pi-times"></i>
+                            <input
+                              name="name"
+                              id="name"
+                              type="text"
+                              class="form-control pl-5"
+                              placeholder="------- :"
+                            />
+                            <i class="pi pi-check"></i>
+                            <i class="pi pi-times"></i>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label>Expedido en :</label>
+                            <select
+                              class="form-control custom-select"
+                              id="Sortbylist-Shop"
+                            >
+                              <option>SC</option>
+                              <option>CB</option>
+                              <option>TJ</option>
+                              <option>SU</option>
+                              <option>LP</option>
+                            </select>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <!--end col-->
                     <div class="col-md-6">
-                      <div class="form-group position-relative">
+                      <div class="form-group">
                         <label>Nacionalidad:</label>
-                        <i class="pi pi-check"></i>
-                        <i class="pi pi-times"></i>
-                        <input
-                          name="name"
-                          id="name"
-                          type="text"
-                          class="form-control pl-5"
-                          placeholder="ej: Boliviano :"
-                        />
-                        <i class="pi pi-check"></i>
-                        <i class="pi pi-times"></i>
+                        <select
+                          class="form-control custom-select"
+                          id="Sortbylist-Shop"
+                        >
+                          <option>Boliviana</option>
+                        </select>
                       </div>
                     </div>
-                    <!--end col-->
                     <div class="col-md-6">
                       <div class="form-group position-relative">
                         <label>Fecha de Vencimiento:</label>
@@ -623,7 +503,7 @@ export default {
                   <!--end col-->
                   <div class="row">
                     <!--start col-->
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                       <div class="form-group position-relative">
                         <label>Dirección personal:</label>
                         <i class="pi pi-check"></i>
@@ -651,12 +531,13 @@ export default {
                           <option>Propia</option>
                           <option>Alquilada</option>
                           <option>Hipotecada</option>
+                          <option>Anticrético</option>
                         </select>
                       </div>
                     </div>
                     <!--end col-->
                     <!--end col-->
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                       <div class="form-group">
                         <label>Nivel de educación :</label>
                         <select
@@ -790,24 +671,25 @@ export default {
                     </div>
                     <!--end col-->
                     <!--end col-->
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label>Dirección de la empresa :</label>
-                        <select
-                          class="form-control custom-select"
-                          id="Sortbylist-Shop"
-                        >
-                          <option>Propia</option>
-                          <option>Alquilada</option>
-                          <option>Hipotecada</option>
-                        </select>
+                    <div class="col-md-12">
+                      <div class="form-group position-relative">
+                        <label>Dirección personal:</label>
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
+                        <input
+                          name="name"
+                          id="name"
+                          type="text"
+                          class="form-control pl-5"
+                          placeholder="--/--/--"
+                        />
+                        <i class="pi pi-check"></i>
+                        <i class="pi pi-times"></i>
                       </div>
                     </div>
                     <!--end col-->
                     <!--end col-->
-                    <div class="col-md-6">
-                      <br />
-                    </div>
+
                     <!--end col-->
 
                     <!--start col-->
@@ -837,9 +719,12 @@ export default {
                           class="form-control custom-select"
                           id="Sortbylist-Shop"
                         >
-                          <option>Propia</option>
-                          <option>Alquilada</option>
-                          <option>Hipotecada</option>
+                          <option>Telecomunicaciones</option>
+                          <option>Construcción</option>
+                          <option>Servicios</option>
+                          <option>Comercio</option>
+                          <option>Manufactura</option>
+                          <option>Agropecuaria</option>
                         </select>
                       </div>
                     </div>
@@ -866,14 +751,14 @@ export default {
                     <!--end col-->
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label>Antigüedad laboral :</label>
+                        <label>Antigüedad laboral (en meses):</label>
                         <select
                           class="form-control custom-select"
                           id="Sortbylist-Shop"
                         >
-                          <option>Propia</option>
-                          <option>Alquilada</option>
-                          <option>Hipotecada</option>
+                          <option>0 - 6</option>
+                          <option>7-12</option>
+                          <option>Más de 12</option>
                         </select>
                       </div>
                     </div>
