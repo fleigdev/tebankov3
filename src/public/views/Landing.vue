@@ -87,7 +87,7 @@ export default {
                 </li>
                 <li class="h6 text-muted mb-0">
                   <span class="text-primary h5 mr-2"></span>
-                  $ {{ (value / 6 + value * 0.03).toFixed(2) }}
+                  $ {{ (value * 0.03).toFixed(2) }}
                 </li>
               </ul>
               <a href="javascript:void(0)" class="btn btn-primary mt-4"

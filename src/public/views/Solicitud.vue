@@ -1,21 +1,34 @@
 <script>
+import Datepicker from 'vue3-datepicker';
+
+import { ref } from 'vue';
+
 /**
  * Page-job-apply component
  */
 export default {
+  name: 'Solicitud',
+  setup() {
+    const picked = ref('');
+    return {
+      picked,
+    };
+  },
   data() {
     return {
       current_step: 1,
       max_step: 1,
     };
   },
-  components: {},
+  components: { Datepicker },
   methods: {
     advanceStep() {
       this.current_step++;
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
     },
     goToStep(value) {
       this.current_step = value;
+      document.body.scrollTop = document.documentElement.scrollTop = 0;
     },
   },
 };
@@ -23,8 +36,6 @@ export default {
 
 <template>
   <div>
-    <Navbar />
-
     <!-- Hero Start -->
     <section class="bg-half bgform bg-light d-table w-100">
       <div class="container">
@@ -165,19 +176,15 @@ export default {
                     </div>
                     <!--end col-->
                     <div class="col-md-6">
-                      <div class="form-group position-relative">
+                      <div class="position-relative">
                         <label>Fecha de Nacimiento:</label>
-                        <i class="pi pi-check"></i>
-                        <i class="pi pi-times"></i>
-                        <input
-                          name="name"
-                          id="name"
-                          type="text"
-                          class="form-control pl-5"
-                          placeholder="First Name :"
+
+                        <datepicker
+                          v-model="picked"
+                          :locale="locale"
+                          startingView="year"
+                          class="form-date pl-5"
                         />
-                        <i class="pi pi-check"></i>
-                        <i class="pi pi-times"></i>
                       </div>
                     </div>
                     <!--end col-->
@@ -190,7 +197,7 @@ export default {
                           name="number"
                           id="number"
                           type="number"
-                          class="form-control pl-5"
+                          class="form-control pl-5 bgwhite"
                           placeholder="Your phone no. :"
                         />
                       </div>
@@ -1135,6 +1142,10 @@ export default {
   font-size: 11px;
 }
 
+.bgwhite {
+  background-color: white !important;
+}
+
 p,
 h3,
 label,
@@ -1144,5 +1155,18 @@ h5 {
 }
 .pleft {
   padding-left: 20px;
+}
+
+.form-date {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  color: #3c4858;
+  height: 42px;
+  font-size: 13px;
+  border-radius: 6px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 </style>

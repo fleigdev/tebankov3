@@ -15,7 +15,9 @@
     "vue-feather-icons": "^5.1.0",
     "vue-router": "^4.0.3",
     "vue-slider-component": "^4.0.0-beta.3",
-    "vuex": "^4.0.0-0"
+    "vue3-datepicker": "^0.2.4",
+    "vuex": "^4.0.0-0",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
