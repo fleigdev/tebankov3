@@ -253,7 +253,6 @@ export default {
                                 <input
                                   type="radio"
                                   id="siAportaAfp"
-                                  checked="checked"
                                   name="radioAportaAfp"
                                   class="custom-control-input"
                                 />

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Public from "../public/Public.vue";
 import Solicitud from "../public/views/Solicitud.vue";
+import Validacion from "../public/views/Validacion.vue";
 import Landing from "../public/views/Landing.vue";
 
 
@@ -12,6 +13,7 @@ const routes = [
     children: [
       {path: '', component: Landing},
       {path: '/solicitud', component: Solicitud},
+      {path: '/validacion', component: Validacion},
       
     ]
   },
