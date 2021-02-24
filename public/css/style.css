@@ -1423,9 +1423,7 @@ button:not(:disabled) {
   display: inline-block;
 }
 
-.breadcrumb .breadcrumb-item a {
-  color: #3c4858;
-}
+
 
 .breadcrumb .breadcrumb-item a:hover {
   color: #2f55d4;
@@ -1440,9 +1438,7 @@ button:not(:disabled) {
 }
 
 .breadcrumb .breadcrumb-item:after {
-  content: "\F0142" !important;
-  font-size: 14px;
-  color: #3c4858;
+  
   font-family: 'Material Design Icons';
   padding-left: 5px;
 }
@@ -2339,7 +2335,7 @@ p {
 
 #topnav .navigation-menu > li > a {
   display: block;
-  color: #3c4858;
+  
   font-size: 13px;
   background-color: transparent !important;
   font-weight: 700;
@@ -2388,9 +2384,7 @@ p {
           box-shadow: 0 0 3px rgba(60, 72, 88, 0.15);
 }
 
-#topnav.scroll .navigation-menu > li > a {
-  color: #3c4858;
-}
+
 
 #topnav.scroll .navigation-menu > li > .menu-arrow {
   border-color: #3c4858;
@@ -2534,7 +2528,7 @@ p {
     text-transform: uppercase;
     letter-spacing: 0.04em;
     font-weight: 700;
-    color: #3c4858 !important;
+    
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
   }

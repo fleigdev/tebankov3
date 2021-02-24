@@ -52,9 +52,56 @@ export default {
         .matches(/^[0-9]+$/, 'Must be numeric')
         .min(7, 'Porfavor ingresar un carnet válido')
         .max(7, 'Porfavor ingresar un carnet válido'),
+      carnetExpedidoEn: yup.string().required('Porfavor elegir una opción'),
       fechaVencimientoCarnet: yup
         .string()
         .required('Porfavor rellenar este campo'),
+      lugarNacimiento: yup.string().required('Porfavor rellenar este campo'),
+      estadoCivil: yup.string().required('Porfavor rellenar este campo'),
+      nacionalidad: yup.string().required('Porfavor elegir una opción'),
+      direccionPersonal: yup.string().required('Porfavor rellenar este campo'),
+      nombreReferenciaFamiliar: yup
+        .string()
+        .required('Porfavor rellenar este campo'),
+      nombreReferenciaLaboral: yup
+        .string()
+        .required('Porfavor rellenar este campo'),
+      viviendaActual: yup.string().required('Porfavor elegir una opción'),
+      nivelEducacion: yup.string().required('Porfavor elegir una opción'),
+      telefonoReferenciaFamiliar: yup
+        .string()
+        .required('Porfavor rellenar este campo')
+        .min(3, 'Porfavor ingresar un teléfono válido')
+        .max(9, 'Porfavor ingresar un teléfono válido'),
+      telefonoReferenciaLaboral: yup
+        .string()
+        .required('Porfavor rellenar este campo')
+        .min(3, 'Porfavor ingresar un teléfono válido')
+        .max(9, 'Porfavor ingresar un teléfono válido'),
+      nombreEmpresa: yup.string().required('Porfavor rellenar este campo'),
+      telefonoEmpresa: yup
+        .string()
+        .required('Porfavor rellenar este campo')
+        .min(3, 'Porfavor ingresar un teléfono válido')
+        .max(9, 'Porfavor ingresar un teléfono válido'),
+      direccionLaboral: yup.string().required('Porfavor rellenar este campo'),
+      cargoEmpresa: yup.string().required('Porfavor rellenar este campo'),
+      rubroEmpresa: yup.string().required('Porfavor elegir una opción'),
+      montoIngresoMensual: yup
+        .number('Porfavor Introducir un valor numérico')
+        .required('Porfavor rellenar este campo'),
+      antiguedadLaboral: yup.string().required('Porfavor elegir una opción'),
+      activoUno: yup.string().required('Introducir un activo'),
+      montoActivoUno: yup
+        .number('Introducir número')
+        .required('Introducir un monto'),
+      aceptoFinalTerminos: yup
+        .bool()
+        .required('Porfavor aceptar los términos para finalizar.'),
+      razonPrestamo: yup
+        .string()
+        .required('Porfavor introducir la razón de tu préstamo.'),
+
       address: yup.string().required('Porfavor elegir una opción'),
       postalCode: yup
         .string()
@@ -114,44 +161,49 @@ export default {
               <div class="page-next">
                 <nav aria-label="breadcrumb" class="d-inline-block">
                   <ul class="breadcrumb bg-white rounded shadow mb-0">
-                    <li class="breadcrumb-item  nav-link">
+                    <li class="breadcrumb-item  ">
                       <a
-                        :class="{ active: currentStep == 1 }"
+                        :class="{ active: currentStep == 0 }"
                         @click.prevent="goToStep(1)"
-                        href="#"
                         >Paso 1</a
                       >
                     </li>
-                    <li class="breadcrumb-item nav-link">
+                    <img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/arrow-right.svg"
+                    />
+                    <li class="breadcrumb-item ">
                       <a
                         :class="{
-                          disabled: max_step < 2,
-                          active: currentStep == 2,
+                          active: currentStep == 1,
                         }"
                         @click.prevent="goToStep(2)"
-                        href="#"
                         >Paso 2</a
                       >
                     </li>
-                    <li class="breadcrumb-item nav-link">
+                    <img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/arrow-right.svg"
+                    />
+                    <li class="breadcrumb-item ">
                       <a
                         :class="{
-                          disabled: max_step < 3,
-                          active: currentStep == 3,
+                          active: currentStep == 2,
                         }"
                         @click.prevent="goToStep(3)"
-                        href="#"
                         >Paso 3</a
                       >
                     </li>
-                    <li class="breadcrumb-item nav-link">
+                    <img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/arrow-right.svg"
+                    />
+                    <li class="breadcrumb-item ">
                       <a
                         :class="{
-                          disabled: max_step < 4,
-                          active: current_step == 4,
+                          active: currentStep == 3,
                         }"
                         @click.prevent="goToStep(4)"
-                        href="#"
                         >Paso 4</a
                       >
                     </li>
@@ -538,16 +590,26 @@ export default {
                           <div class="col-md-4">
                             <div class="form-group">
                               <label>Expedido en :</label>
-                              <select
-                                class="form-control custom-select"
+                              <Field
+                                as="select"
                                 id="carnetExpedidoEn"
+                                name="carnetExpedidoEn"
+                                class="form-control custom-select"
+                                v-model="formValues.carnetExpedidoEn"
                               >
+                                <option :value="null" disabled
+                                  >Seleccionar</option
+                                >
                                 <option>SC</option>
                                 <option>CB</option>
                                 <option>TJ</option>
                                 <option>SU</option>
                                 <option>LP</option>
-                              </select>
+                              </Field>
+                              <ErrorMessage
+                                class="errorc"
+                                name="carnetExpedidoEn"
+                              />
                             </div>
                           </div>
                         </div>
@@ -555,12 +617,17 @@ export default {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Nacionalidad:</label>
-                          <select
-                            class="form-control custom-select"
+                          <Field
+                            as="select"
                             id="nacionalidad"
+                            name="nacionalidad"
+                            class="form-control custom-select"
+                            v-model="formValues.nacionalidad"
                           >
+                            <option :value="null" disabled>Seleccionar</option>
                             <option>Boliviana</option>
-                          </select>
+                          </Field>
+                          <ErrorMessage class="errorc" name="nacionalidad" />
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -590,33 +657,45 @@ export default {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Lugar de Nacimiento :</label>
-                          <select
+                          <Field
+                            as="select"
+                            id="lugarNacimiento"
+                            name="lugarNacimiento"
                             class="form-control custom-select"
-                            id="lugarDeNacimiento"
+                            v-model="formValues.lugarNacimiento"
                           >
+                            <option :value="null" disabled>Seleccionar</option>
                             <option>Santa Cruz</option>
                             <option>Cochabamba</option>
                             <option>Tarija</option>
                             <option>Sucre</option>
                             <option>La Paz</option>
-                          </select>
+                          </Field>
+                          <ErrorMessage class="errorc" name="lugarNacimiento" />
                         </div>
                       </div>
                       <!--end col-->
                       <!--end col-->
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Estado civil :</label>
-                          <select
-                            class="form-control custom-select"
+                          <label>Estado Civil :</label>
+                          <Field
+                            as="select"
                             id="estadoCivil"
+                            name="estadoCivil"
+                            class="form-control custom-select"
+                            v-model="formValues.estadoCivil"
                           >
+                            <option :value="null" disabled>Seleccionar</option>
                             <option>Soltero</option>
                             <option>Casado</option>
                             <option>Viudo</option>
-                          </select>
+                          </Field>
+                          <ErrorMessage class="errorc" name="estadoCivil" />
                         </div>
                       </div>
+                      <!--end col-->
+                      <!--end col-->
 
                       <!--end col-->
                     </div>
@@ -633,13 +712,19 @@ export default {
                           <label>Dirección personal:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
-                            name="name"
-                            id="name"
+                          <Field
+                            name="direccionPersonal"
+                            id="direccionPersonal"
                             type="text"
                             class="form-control pl-5"
                             placeholder="Ej: Avenida Beni Calle 5 - Casa Nro 45"
+                            v-model="formValues.direccionPersonal"
                           />
+                          <ErrorMessage
+                            class="errorc"
+                            name="direccionPersonal"
+                          />
+
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
                         </div>
@@ -649,32 +734,48 @@ export default {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>La vivienda donde usted vide es :</label>
-                          <select
+                          <Field
+                            as="select"
+                            id="viviendaActual"
+                            name="viviendaActual"
                             class="form-control custom-select"
-                            id="estadoViviendaActual"
+                            v-model="formValues.viviendaActual"
                           >
+                            <option :value="null" disabled>Seleccionar</option>
                             <option>Propia</option>
                             <option>Alquilada</option>
                             <option>Hipotecada</option>
                             <option>Anticrético</option>
-                          </select>
+                          </Field>
+                          <ErrorMessage class="errorc" name="viviendaActual" />
+                          <i class="pi pi-check"></i>
+                          <i class="pi pi-times"></i>
                         </div>
                       </div>
+
                       <!--end col-->
                       <!--end col-->
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Nivel de educación :</label>
-                          <select
-                            class="form-control custom-select"
+                          <Field
+                            as="select"
                             id="nivelEducacion"
+                            name="nivelEducacion"
+                            class="form-control custom-select"
+                            v-model="formValues.nivelEducacion"
                           >
+                            <option :value="null" disabled>Seleccionar</option>
                             <option>Bachiller</option>
                             <option>Graduado</option>
                             <option>Masterado</option>
-                          </select>
+                          </Field>
+                          <ErrorMessage class="errorc" name="nivelEducacion" />
+                          <i class="pi pi-check"></i>
+                          <i class="pi pi-times"></i>
                         </div>
                       </div>
+
                       <!--end col-->
                       <!--start col-->
                       <div class="col-md-6">
@@ -682,13 +783,19 @@ export default {
                           <label>Referencia familiar:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
+                          <Field
                             name="nombreReferenciaFamiliar"
                             id="nombreReferenciaFamiliar"
                             type="text"
                             class="form-control pl-5"
                             placeholder="Ej: Pedro Martinez"
+                            v-model="formValues.nombreReferenciaFamiliar"
                           />
+                          <ErrorMessage
+                            class="errorc"
+                            name="nombreReferenciaFamiliar"
+                          />
+
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
                         </div>
@@ -700,13 +807,19 @@ export default {
                           <label>Teléfono celular:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
+                          <Field
                             name="telefonoReferenciaFamiliar"
                             id="telefonoReferenciaFamiliar"
-                            type="text"
-                            class="form-control pl-5"
+                            type="number"
+                            class="form-control pl-5 bgwhite"
                             placeholder="Ej: 690 05655"
+                            v-model="formValues.telefonoReferenciaFamiliar"
                           />
+                          <ErrorMessage
+                            class="errorc"
+                            name="telefonoReferenciaFamiliar"
+                          />
+
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
                         </div>
@@ -718,13 +831,19 @@ export default {
                           <label>Referencia laboral:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
+                          <Field
                             name="nombreReferenciaLaboral"
                             id="nombreReferenciaLaboral"
                             type="text"
                             class="form-control pl-5"
                             placeholder="Ej: Juan Delgado"
+                            v-model="formValues.nombreReferenciaLaboral"
                           />
+                          <ErrorMessage
+                            class="errorc"
+                            name="nombreReferenciaLaboral"
+                          />
+
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
                         </div>
@@ -736,15 +855,18 @@ export default {
                           <label>Teléfono celular:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
+                          <Field
                             name="telefonoReferenciaLaboral"
                             id="telefonoReferenciaLaboral"
-                            type="text"
-                            class="form-control pl-5"
-                            placeholder="Ej: 690 05644"
+                            type="number"
+                            class="form-control pl-5 bgwhite"
+                            placeholder="Ej: 690 078566"
+                            v-model="formValues.telefonoReferenciaLaboral"
                           />
-                          <i class="pi pi-check"></i>
-                          <i class="pi pi-times"></i>
+                          <ErrorMessage
+                            class="errorc"
+                            name="telefonoReferenciaLaboral"
+                          />
                         </div>
                       </div>
                       <!--end col-->
@@ -765,15 +887,15 @@ export default {
                           <label>Nombre de la empresa:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
+                          <Field
                             name="nombreEmpresa"
                             id="nombreEmpresa"
                             type="text"
                             class="form-control pl-5"
                             placeholder="Ej: Embol S.A"
+                            v-model="formValues.nombreEmpresa"
                           />
-                          <i class="pi pi-check"></i>
-                          <i class="pi pi-times"></i>
+                          <ErrorMessage class="errorc" name="nombreEmpresa" />
                         </div>
                       </div>
                       <!--end col-->
@@ -783,15 +905,15 @@ export default {
                           <label>Teléfono de la empresa:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
+                          <Field
                             name="telefonoEmpresa"
                             id="telefonoEmpresa"
-                            type="text"
-                            class="form-control pl-5"
-                            placeholder="Ej: 3 458484"
+                            type="number"
+                            class="form-control pl-5 bgwhite"
+                            placeholder="Ej: 690 078566"
+                            v-model="formValues.telefonoEmpresa"
                           />
-                          <i class="pi pi-check"></i>
-                          <i class="pi pi-times"></i>
+                          <ErrorMessage class="errorc" name="telefonoEmpresa" />
                         </div>
                       </div>
                       <!--end col-->
@@ -801,13 +923,19 @@ export default {
                           <label>Dirección laboral:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
-                            name="name"
-                            id="name"
+                          <Field
+                            name="direccionLaboral"
+                            id="direccionLaboral"
                             type="text"
                             class="form-control pl-5"
                             placeholder="Ej: Av. Piraí No. 987"
+                            v-model="formValues.direccionLaboral"
                           />
+                          <ErrorMessage
+                            class="errorc"
+                            name="direccionLaboral"
+                          />
+
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
                         </div>
@@ -823,13 +951,16 @@ export default {
                           <label>Cargo en la empresa:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
+                          <Field
                             name="cargoEmpresa"
                             id="cargoEmpresa"
                             type="text"
                             class="form-control pl-5"
                             placeholder="Ej: Analista de negocios"
+                            v-model="formValues.cargoEmpresa"
                           />
+                          <ErrorMessage class="errorc" name="cargoEmpresa" />
+
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
                         </div>
@@ -840,17 +971,22 @@ export default {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Rubro de la empresa :</label>
-                          <select
-                            class="form-control custom-select"
+                          <Field
+                            as="select"
                             id="rubroEmpresa"
+                            name="rubroEmpresa"
+                            class="form-control custom-select"
+                            v-model="formValues.rubroEmpresa"
                           >
+                            <option :value="null" disabled>Seleccionar</option>
                             <option>Telecomunicaciones</option>
                             <option>Construcción</option>
                             <option>Servicios</option>
                             <option>Comercio</option>
                             <option>Manufactura</option>
                             <option>Agropecuaria</option>
-                          </select>
+                          </Field>
+                          <ErrorMessage class="errorc" name="rubroEmpresa" />
                         </div>
                       </div>
                       <!--end col-->
@@ -861,13 +997,19 @@ export default {
                           <label>Monto de ingresos líquidos mensuales:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
-                            name="name"
-                            id="name"
-                            type="text"
+                          <Field
+                            type="number"
+                            name="montoIngresoMensual"
+                            id="montoIngresoMensual"
                             class="form-control pl-5"
-                            placeholder="Monto en USD"
+                            placeholder="Monto en USD$ :"
+                            v-model="formValues.montoIngresoMensual"
                           />
+                          <ErrorMessage
+                            class="errorc"
+                            name="montoIngresoMensual"
+                          />
+
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
                         </div>
@@ -877,14 +1019,22 @@ export default {
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Antigüedad laboral (en meses):</label>
-                          <select
-                            class="form-control custom-select"
+                          <Field
+                            as="select"
                             id="antiguedadLaboral"
+                            name="antiguedadLaboral"
+                            class="form-control custom-select"
+                            v-model="formValues.antiguedadLaboral"
                           >
+                            <option :value="null" disabled>Seleccionar</option>
                             <option>0 - 6</option>
                             <option>7-12</option>
                             <option>Más de 12</option>
-                          </select>
+                          </Field>
+                          <ErrorMessage
+                            class="errorc"
+                            name="antiguedadLaboral"
+                          />
                         </div>
                       </div>
                       <!--end col-->
@@ -919,7 +1069,7 @@ export default {
             <div class="col-lg-10 col-md-7">
               <div
                 class="card custom-form border-0 bgcolor"
-                v-show="currentStep == 2"
+                v-if="currentStep === 2"
               >
                 <h2 class="text-center pt-5">Activos</h2>
                 <p class="text-center ">
@@ -936,14 +1086,19 @@ export default {
                       <div class="col-md-8">
                         <div class="form-group">
                           <label>Activo :</label>
-                          <select
+                          <Field
+                            as="select"
+                            id="activoUno"
+                            name="activoUno"
                             class="form-control custom-select"
-                            id="primerActivo"
+                            v-model="formValues.activoUno"
                           >
+                            <option :value="null" disabled>Seleccionar</option>
                             <option>Auto</option>
                             <option>Casa</option>
                             <option>Equipos</option>
-                          </select>
+                          </Field>
+                          <ErrorMessage class="errorc" name="activoUno" />
                         </div>
                       </div>
                       <!--end col-->
@@ -953,13 +1108,15 @@ export default {
                           <label>USD:</label>
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
-                          <input
-                            name="valorPrimerActivo"
-                            id="name"
+                          <Field
                             type="number"
+                            name="montoActivoUno"
+                            id="montoActivoUno"
                             class="form-control pl-5"
-                            placeholder="Valor en USD"
+                            placeholder="Monto en USD$ :"
+                            v-model="formValues.montoActivoUno"
                           />
+                          <ErrorMessage class="errorc" name="montoActivoUno" />
                           <i class="pi pi-check"></i>
                           <i class="pi pi-times"></i>
                         </div>
@@ -1105,7 +1262,7 @@ export default {
             <div class="col-lg-10 col-md-7">
               <div
                 class="card custom-form border-0 bgcolor"
-                v-show="currentStep == 3"
+                v-if="currentStep === 3"
               >
                 <h2 class="text-center pt-5">Validemos tu información</h2>
                 <p class="text-center ">
@@ -1179,19 +1336,41 @@ export default {
                       </div>
                       <!--end col-->
                       <!--end col-->
+                      <!--end col-->
+                      <div class="col-md-12">
+                        <div class="form-group position-relative">
+                          <label>¿ Cuál es la razón de tu préstamo ? :</label>
+                          <message-circle-icon
+                            class="fea icon-sm icons"
+                          ></message-circle-icon>
+                          <Field
+                            type="text"
+                            name="razonPrestamo"
+                            id="razonPrestamo"
+                            rows="4"
+                            v-model="formValues.razonPrestamo"
+                            class="form-control pl-5"
+                            placeholder="El préstamo será digido a ...."
+                          />
+                          <ErrorMessage class="errorc" name="montoActivoUno" />
+                        </div>
+                      </div>
 
                       <!--end col-->
                       <div class="col-md-12">
                         <div class="form-group">
                           <div class="custom-control custom-checkbox">
-                            <input
+                            <Field
                               type="checkbox"
                               class="custom-control-input"
-                              id="customCheck2"
+                              id="aceptoFinalTerminos"
+                              name="aceptoFinalTerminos"
+                              v-model="formValues.aceptoFinalTerminos"
+                              :value="true"
                             />
                             <label
                               class="custom-control-label"
-                              for="customCheck2"
+                              for="aceptoFinalTerminos"
                               >Acepto los términos descritos a continuación
                             </label>
                             <p class="terms">
@@ -1224,6 +1403,10 @@ export default {
                               Tener teléfono celular y correo electrónico.
                             </p>
                           </div>
+                          <ErrorMessage
+                            class="errorc"
+                            name="aceptoFinalTerminos"
+                          />
                         </div>
                       </div>
 
@@ -1244,7 +1427,7 @@ export default {
                       </div>
                       <div class="col-sm-6 text-center">
                         <input
-                          @click="handleSubmit($event, nextStep)"
+                          type="submit"
                           class="submitBnt btn btn-primary"
                           value="Finalizar"
                         />
@@ -1315,5 +1498,17 @@ h5 {
   border-radius: 6px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.active {
+  color: #0056b3;
+}
+
+a {
+  color: #3c4858;
+}
+
+.smallarrow {
+  height: 25px;
 }
 </style>

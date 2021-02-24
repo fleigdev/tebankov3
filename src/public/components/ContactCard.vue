@@ -1,3 +1,46 @@
+<script>
+import { Form, Field, ErrorMessage } from 'vee-validate';
+import * as yup from 'yup';
+import { reactive } from 'vue';
+
+export default {
+  components: {
+    //Datepicker,
+    Form,
+    Field,
+    ErrorMessage,
+  },
+  setup: () => {
+    const formValues = reactive({});
+    const schema = yup.object().shape({
+      nombreCompleto: yup
+        .string()
+        .required('Porfavor ingrese su nombre completo'),
+      correoElectronico: yup
+        .string()
+        .required('Porfavor ingresar su correo')
+        .email('Porfavor ingrese un correo válido'),
+      telefono: yup
+        .string()
+        .required('Porfavor ingrese su número de teléfono')
+        .min(3, 'Porfavor ingresar un teléfono válido')
+        .max(9, 'Porfavor ingresar un teléfono válido'),
+      mensaje: yup.string().required('Porfavor ingrese su mensaje'),
+    });
+
+    function onSubmit() {
+      alert(JSON.stringify(formValues, null, 2));
+    }
+    return {
+      schema,
+      onSubmit,
+
+      formValues,
+    };
+  },
+};
+</script>
+
 <template>
   <div>
     <div class="col-12 text-center">
@@ -17,33 +60,38 @@
             <div class="row ">
               <div class="col-md-6">
                 <div class="card-body paddingcard">
-                  <form>
+                  <Form @submit="onSubmit" :validation-schema="schema">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Nombre Completo </label>
-                          <input
-                            name="name"
-                            id="name"
+                          <Field
+                            name="nombreCompleto"
+                            id="nombreCompleto"
                             type="text"
                             class="form-control font-weight-bold"
                             required
                             placeholder="Ingrese su nombre..."
+                            v-model="formValues.nombreCompleto"
                           />
+                          <ErrorMessage class="errorc" name="nombreCompleto" />
                         </div>
                       </div>
                       <!--end col-->
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Correo electrónico </label>
-                          <input
+                          <Field
+                            name="correoElectronico"
+                            id="correoElectronico"
                             type="text"
-                            min="0"
-                            autocomplete="off"
-                            id="cardnumber"
                             class="form-control font-weight-bold"
-                            required
-                            placeholder="Ingrese su correo electrónico..."
+                            placeholder="Ingrese su correo electrónico"
+                            v-model="formValues.correoElectronico"
+                          />
+                          <ErrorMessage
+                            class="errorc"
+                            name="correoElectronico"
                           />
                         </div>
                       </div>
@@ -51,30 +99,32 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label>Teléfono </label>
-                          <input
+                          <Field
+                            name="telefono"
+                            id="telefono"
                             type="number"
-                            min="0"
-                            autocomplete="off"
-                            id="exdate"
                             class="form-control font-weight-bold"
-                            required
                             placeholder="Ingrese su número de teléfono..."
+                            v-model="formValues.telefono"
                           />
+                          <ErrorMessage class="errorc" name="telefono" />
                         </div>
                       </div>
                       <!--end col-->
                       <div class="col-md-12">
                         <div class="form-group">
                           <label>Mensaje</label>
-                          <textarea
+                          <Field
+                            as="textarea"
                             type="text"
-                            min="0"
-                            autocomplete="off"
-                            id="cvv"
+                            name="mensaje"
+                            id="mensaje"
                             class="form-control font-weight-bold"
                             required
                             placeholder="Ingrese su mensaje..."
+                            v-model="formValues.mensaje"
                           />
+                          <ErrorMessage class="errorc" name="mensaje" />
                         </div>
                       </div>
                       <!--end col-->
@@ -84,8 +134,6 @@
                       <div class="col-sm-1">
                         <input
                           type="submit"
-                          id="submit"
-                          name="send"
                           class="submitBnt btn btn-primary"
                           value="Enviar Mensaje"
                         />
@@ -93,7 +141,7 @@
                       <!--end col-->
                     </div>
                     <!--end row-->
-                  </form>
+                  </Form>
                   <!--end form-->
                 </div>
               </div>
@@ -115,16 +163,22 @@
                       christiansuarez@tebanko.com
                     </p>
                   </div>
-                  <div class="col-6">
-                    <p>Cochabamba</p>
-                    <p>Calle Tiquipaya #145.</p>
-                    <p>
-                      pablohinojosa@tebanko.com
-                    </p>
+                  <div class="col-lg-12">
+                    <h5>
+                      O escríbenos mediante Whatsapp
+                    </h5>
+                  </div>
+                  <div class="text-center">
+                    <a href="https://api.whatsapp.com/send/?phone=59175333012">
+                      <img
+                        class="whapplogo"
+                        src="../../assets/img/iconos/whatsappgreen.svg"
+                      />
+                    </a>
                   </div>
                 </div>
               </div>
-              <!--end col-->
+              <!--end col -->
             </div>
             <!--end row-->
           </div>
@@ -157,6 +211,9 @@ h3 {
 input[type='text'] {
   height: 25px;
 }
+input[type='email'] {
+  height: 25px;
+}
 
 input[type='number'] {
   height: 25px;
@@ -165,7 +222,10 @@ input[type='number'] {
 textarea {
   height: 100px;
 }
-
+.whapplogo {
+  height: 55px;
+      margin-left: 100px;
+}
 .bggradient {
   background: linear-gradient(
     90deg,
@@ -177,5 +237,9 @@ textarea {
 .paddingcard {
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+.errorc {
+  color: red;
 }
 </style>

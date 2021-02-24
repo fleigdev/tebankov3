@@ -1,10 +1,12 @@
 <script>
+import CorreoCard from './CorreoCard.vue';
+
 export default {
   name: 'Footer',
   data() {
     return {};
   },
-  components: {},
+  components: { CorreoCard },
 };
 </script>
 
@@ -74,44 +76,7 @@ export default {
             </p>
           </div>
           <!--end col-->
-
-          <div class="col-md-4 col-12">
-            <h4 class="text-light footer-head">Información</h4>
-            <p class="mt-4">
-              Déjanos tu correo electrónico para enterarte de las ofertas y
-              productos que te ofrece TeBanko.
-            </p>
-            <form>
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="foot-subscribe form-group position-relative">
-                    <label
-                      >Ingresa tu correo electrónico
-                      <span class="text-danger">*</span></label
-                    >
-                    <mail-icon class="fea icon-sm icons"></mail-icon>
-                    <input
-                      type="email"
-                      name="email"
-                      id="emailsubscribe"
-                      class="form-control pl-5 rounded"
-                      placeholder="Correo: "
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <input
-                    type="submit"
-                    id="submitsubscribe"
-                    name="send"
-                    class="btn btn-soft-primary btn-block"
-                    value="Ingresar"
-                  />
-                </div>
-              </div>
-            </form>
-          </div>
+          <CorreoCard />
           <!--end col-->
         </div>
         <!--end row-->

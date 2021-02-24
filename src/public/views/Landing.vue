@@ -235,22 +235,30 @@ export default {
               <ul class="list-unstyled text-muted">
                 <li class="mb-0">
                   <span class="text-primary h5 mr-2"
-                    ><i class="uim uim-check-circle"></i></span
+                    ><img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/badge-check.svg"/></span
                   >Tener ingresos regulares
                 </li>
                 <li class="mb-0">
                   <span class="text-primary h5 mr-2"
-                    ><i class="uim uim-check-circle"></i></span
+                    ><img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/badge-check.svg"/></span
                   >Respaldo de ingresos (AFP)
                 </li>
                 <li class="mb-0">
                   <span class="text-primary h5 mr-2"
-                    ><i class="uim uim-check-circle"></i></span
+                    ><img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/badge-check.svg"/></span
                   >Cuenta bancaria
                 </li>
                 <li class="mb-0">
                   <span class="text-primary h5 mr-2"
-                    ><i class="uim uim-check-circle"></i></span
+                    ><img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/badge-check.svg"/></span
                   >Ser mayor de edad
                 </li>
               </ul>
@@ -395,3 +403,13 @@ export default {
     <!-- Back to top -->
   </div>
 </template>
+
+<style scoped>
+.badge {
+  height: 25px;
+}
+
+.smallarrow {
+  height: 25px;
+}
+</style>

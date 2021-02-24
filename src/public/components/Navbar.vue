@@ -130,17 +130,9 @@ export default {
               class="l-light"
             />
           </router-link> -->
-          <router-link class="logo" to="/" v-if="navLight !== true">
+          <div class="logo" href="/" v-if="navLight !== true">
             <img src="../../assets/img/logo-tebanko.png" height="45" alt="" />
-          </router-link>
-          <router-link class="logo" to="/" v-else>
-            <img
-              src="../../assets/img/logo-tebanko.png"
-              class="l-dark"
-              height="45"
-              alt=""
-            />
-          </router-link>
+          </div>
         </div>
 
         <!--end login button-->
@@ -163,26 +155,23 @@ export default {
           </div>
         </div>
 
-        <div id="navigation">
-          <!-- Navigation Menu-->
-          <ul
-            class="navigation-menu navright"
-            :class="{ 'nav-light': navLight === true }"
-          >
-            <li>
-              <router-link to="/" class="side-nav-link-ref">Inicio</router-link>
-            </li>
-            <li>
-              <router-link to="/solicitud" class="side-nav-link-ref"
-                >Solicitud de Préstamo</router-link
-              >
-            </li>
-          </ul>
-          <!--end navigation menu-->
+        <nav>
+          <div id="navigation">
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu navright">
+              <li>
+                <router-link to="/">Inicio</router-link>
+              </li>
+              <li>
+                <router-link to="/solicitud">Solicitud de Préstamo</router-link>
+              </li>
+            </ul>
+            <!--end navigation menu-->
 
-          <!--end login button-->
-        </div>
-        <!--end navigation-->
+            <!--end login button-->
+          </div>
+          <!--end navigation-->
+        </nav>
       </div>
       <!--end container-->
     </header>
@@ -190,3 +179,17 @@ export default {
     <!-- Navbar End -->
   </div>
 </template>
+
+<style scoped>
+.router-link-exact-active {
+  color: #0056b3;
+}
+
+a {
+  color: #343a40;
+}
+
+#topnav.scroll .navigation-menu > li > a {
+  color: white;
+}
+</style>

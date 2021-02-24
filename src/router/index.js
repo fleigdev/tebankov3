@@ -11,8 +11,8 @@ const routes = [
     component: Public,
     
     children: [
-      {path: '', component: Landing},
-      {path: '/solicitud', component: Solicitud},
+      {path: '', component: Landing },
+      {path: '/solicitud', component: Solicitud },
       {path: '/validacion', component: Validacion},
       
     ]

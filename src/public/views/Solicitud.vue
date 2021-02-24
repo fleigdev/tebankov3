@@ -53,7 +53,7 @@ export default {
               <div class="page-next">
                 <nav aria-label="breadcrumb" class="d-inline-block">
                   <ul class="breadcrumb bg-white rounded shadow mb-0">
-                    <li class="breadcrumb-item  nav-link">
+                    <li class="breadcrumb-item  ">
                       <a
                         :class="{ active: current_step == 1 }"
                         @click.prevent="goToStep(1)"
@@ -61,10 +61,13 @@ export default {
                         >Paso 1</a
                       >
                     </li>
-                    <li class="breadcrumb-item nav-link">
+                    <img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/arrow-right.svg"
+                    />
+                    <li class="breadcrumb-item ">
                       <a
                         :class="{
-                          disabled: max_step < 2,
                           active: current_step == 2,
                         }"
                         @click.prevent="goToStep(2)"
@@ -72,10 +75,13 @@ export default {
                         >Paso 2</a
                       >
                     </li>
-                    <li class="breadcrumb-item nav-link">
+                    <img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/arrow-right.svg"
+                    />
+                    <li class="breadcrumb-item ">
                       <a
                         :class="{
-                          disabled: max_step < 3,
                           active: current_step == 3,
                         }"
                         @click.prevent="goToStep(3)"
@@ -83,10 +89,13 @@ export default {
                         >Paso 3</a
                       >
                     </li>
-                    <li class="breadcrumb-item nav-link">
+                    <img
+                      class="smallarrow"
+                      src="../../assets/img/iconos/arrow-right.svg"
+                    />
+                    <li class="breadcrumb-item ">
                       <a
                         :class="{
-                          disabled: max_step < 4,
                           active: current_step == 4,
                         }"
                         @click.prevent="goToStep(4)"
@@ -144,8 +153,7 @@ export default {
                     <div class="col-md-6">
                       <div class="form-group position-relative">
                         <label>Nombre Completo :</label>
-                        <i class="pi pi-check"></i>
-                        <i class="pi pi-times"></i>
+
                         <input
                           name="name"
                           id="name"
@@ -1156,6 +1164,10 @@ h5 {
   padding-left: 20px;
 }
 
+.smallarrow {
+  height: 25px;
+}
+
 .form-date {
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -1167,5 +1179,13 @@ h5 {
   border-radius: 6px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.active {
+  color: #0056b3;
+}
+
+a {
+  color: #3c4858;
 }
 </style>
