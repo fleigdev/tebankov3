@@ -2,6 +2,7 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { reactive } from 'vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -13,11 +14,17 @@ export default {
   setup: () => {
     const formValues = reactive({});
     const schema = yup.object().shape({
-      correoSuscripcion: yup
+      suscripcionemail: yup
         .string()
         .required('Porfavor ingresar su correo')
         .email('Porfavor ingrese un correo válido'),
     });
+
+    const submit = async () => {
+      await axios.post('suscripcionemail', {
+        email: formValues.suscripcionemail,
+      });
+    };
 
     function onSubmit() {
       alert(JSON.stringify(formValues, null, 2));
@@ -25,8 +32,8 @@ export default {
     return {
       schema,
       onSubmit,
-
       formValues,
+      submit,
     };
   },
 };
@@ -39,7 +46,7 @@ export default {
       Déjanos tu correo electrónico para enterarte de las ofertas y productos
       que te ofrece TeBanko.
     </p>
-    <Form @submit="onSubmit" :validation-schema="schema">
+    <Form @submit="submit" :validation-schema="schema">
       <div class="row">
         <div class="col-lg-12">
           <div class="foot-subscribe form-group position-relative">
@@ -50,14 +57,14 @@ export default {
             <mail-icon class="fea icon-sm icons"></mail-icon>
             <Field
               type="email"
-              name="correoSuscripcion"
+              name="suscripcionemail"
               id="correoSuscripcion"
               class="form-control pl-5 rounded"
               placeholder="Correo: "
-              v-model="formValues.correoSuscripcion"
+              v-model="formValues.suscripcionemail"
               required
             />
-            <ErrorMessage class="errorc" name="correoSuscripcion" />
+            <ErrorMessage class="errorc" name="suscripcionemail" />
           </div>
         </div>
         <div class="col-lg-12">

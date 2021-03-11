@@ -2,6 +2,7 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { reactive } from 'vue';
+import axios from 'axios';
 
 export default {
   components: {
@@ -28,13 +29,22 @@ export default {
       mensaje: yup.string().required('Porfavor ingrese su mensaje'),
     });
 
+    const submit = async () => {
+      await axios.post('contacto', {
+        nombreCompleto: formValues.nombreCompleto,
+        correoElectronico: formValues.correoElectronico,
+        telefono: formValues.telefono,
+        mensaje: formValues.mensaje,
+      });
+    };
+
     function onSubmit() {
       alert(JSON.stringify(formValues, null, 2));
     }
     return {
       schema,
       onSubmit,
-
+      submit,
       formValues,
     };
   },
@@ -60,7 +70,7 @@ export default {
             <div class="row ">
               <div class="col-md-6">
                 <div class="card-body paddingcard">
-                  <Form @submit="onSubmit" :validation-schema="schema">
+                  <Form @submit="submit" :validation-schema="schema">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -224,7 +234,7 @@ textarea {
 }
 .whapplogo {
   height: 55px;
-      margin-left: 100px;
+  margin-left: 100px;
 }
 .bggradient {
   background: linear-gradient(
