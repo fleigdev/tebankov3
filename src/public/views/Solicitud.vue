@@ -1418,7 +1418,7 @@ export default {
                             quitarte las gafas /gorra y que se tiene que leer
                             claramente tu número de identificación.
                           </p>
-                          <Field
+                          <input
                             type="file"
                             class="form-control-file"
                             id="fileupload"
