@@ -55,7 +55,7 @@ export default {
   <div>
     <div class="col-12 text-center">
       <div class="section-title mb-4 pb-2">
-        <h2 class="title mb-4 titlesection ">
+        <h2 class="mb-4 titlesection titlecontact">
           ¿Tienes preguntas?
         </h2>
       </div>
@@ -65,7 +65,7 @@ export default {
       <!--end row-->
 
       <div class="row ">
-        <div class="card rounded border-0 shadow bgcolor">
+        <div class="card rounded border-0 shadow bgcolor mobilecardheight">
           <div class="container">
             <div class="row ">
               <div class="col-md-6">
@@ -160,30 +160,45 @@ export default {
               <div class="col-md-6 mt-4 mt-4 pt-4">
                 <div class="row">
                   <div class="col-lg-12">
+                    <h3 class="cardtitle">
+                      Contacto
+                    </h3>
+                  </div>
+
+                  <div class="col-lg-12">
                     <h5>
                       Contáctanos ahora y programaremos una cita para ayudarte a
                       aclarar dudas.
                     </h5>
                   </div>
-
-                  <div class="col-6">
-                    <p>Santa Cruz</p>
-                    <p>Radial 27 entre 3er y 4to anillo.</p>
-                    <p>
+                  <div class="col-lg-12 ">
+                    <p class="mt-4">
+                      <img
+                        class="smalllogos"
+                        src="../../assets/img/iconos/send.png"
+                      />
                       christiansuarez@tebanko.com
                     </p>
                   </div>
                   <div class="col-lg-12">
-                    <h5>
-                      O escríbenos mediante Whatsapp
-                    </h5>
+                    <p class="mt-4">
+                      <img
+                        class="smalllogos"
+                        src="../../assets/img/iconos/map-pin.png"
+                      />
+                      christiansuarez@tebanko.com
+                    </p>
+                  </div>
+
+                  <div class="col-lg-12 padbutton">
+                    <input
+                      type="submit"
+                      class="btn btn-soft-primary btn-block "
+                      value="Escríbenos mediante Whatsapp"
+                    />
                   </div>
                   <div class="text-center">
                     <a href="https://api.whatsapp.com/send/?phone=59175333012">
-                      <img
-                        class="whapplogo"
-                        src="../../assets/img/iconos/whatsappgreen.svg"
-                      />
                     </a>
                   </div>
                 </div>
@@ -205,7 +220,15 @@ export default {
 
 <style scoped>
 .bgcolor {
-  background-color: #202942;
+  background-color: #001b66;
+}
+
+.smalllogos {
+  height: 35px;
+}
+
+h3 {
+  font-size: 35px;
 }
 
 p,
@@ -215,9 +238,6 @@ h5 {
   color: white;
 }
 
-h3 {
-  text-align: center;
-}
 input[type='text'] {
   height: 25px;
 }
@@ -251,5 +271,13 @@ textarea {
 
 .errorc {
   color: red;
+}
+
+.titlecontact {
+  font-size: 35px !important;
+}
+
+.padbutton {
+  padding-top: 20px;
 }
 </style>

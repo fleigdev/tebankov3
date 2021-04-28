@@ -4,18 +4,13 @@
  */
 
 import ContactCard from '../components/ContactCard.vue';
-import VueSlider from 'vue-slider-component';
-import 'vue-slider-component/theme/antd.css';
+
+import CalculateCard from '../components/CalculateCard.vue';
 
 export default {
   name: 'Landing',
-  data() {
-    return {
-      value: 1500,
-      totalValue: 20,
-    };
-  },
-  components: { ContactCard, VueSlider },
+
+  components: { ContactCard, CalculateCard },
 };
 </script>
 
@@ -23,26 +18,29 @@ export default {
   <div>
     <!-- Hero Start -->
     <section
-      class="bg-home rtl-personal-hero bg-light d-flex align-items-center backgroundhero"
+      class="bg-home rtl-personal-hero bg-light d-flex align-items-center backgroundhero heromobile"
       id="home"
     >
       <div class="container">
-        <div class="row aligntoleft">
+        <div class="row aligntoleft mobilepadding">
           <div class="col-lg-6">
             <div class="title-heading mt-4">
-              <h1 class="display-3 font-weight-bold mb-3">
-                Estamos contigo para ayudarte a alcanzar tus sueños.
+              <h1 class="display-3  mb-3 figma-title">
+                Estamos contigo <br />
+                para ayudarte a <br />
+                alcanzar tus <br />
+                sueños.
               </h1>
-              <p class="para-desc text-muted font-weight-bold">
+              <p class="para-desc font-weight-bold ">
                 #YoTeBanko
               </p>
-              <p class="para-desc text-muted">
+              <p class="para-desc hashtag">
                 Solicita tu préstamo personal de manera rápida y segura, desde
                 la comodidad de tu hogar.
               </p>
               <div class="mt-4 pt-2">
                 <a class="btn btn-primary mt-2 mr-2 mouse-down"
-                  ><i class="mdi mdi-camera"></i> Solicítalo Aquí!</a
+                  ><i class="mdi mdi-camera"></i> Solicítalo Aquí</a
                 >
                 <br />
               </div>
@@ -53,80 +51,32 @@ export default {
 
         <!--end row-->
       </div>
+
       <!--end container-->
     </section>
 
     <!--end section-->
     <!-- Hero End -->
 
+    <!--end row-->
+    <CalculateCard />
+    <!--end container-->
+
     <!--end section-->
 
-    <!-- Testi Start -->
-    <section class="section thinkingsection">
-      <div class="row justify-content-center ">
-        <div class="col-md-4 col-12 mt-4 "></div>
-
-        <div class="col-md-4 col-12 mt-4 " style="top: -250px;">
-          <div
-            class="card pricing-rates business-rate shadow bg-light rounded text-center border-0"
-          >
-            <div class="card-body py-5">
-              <h2 class="title text-uppercase mb-4">
-                ¿Cuánto dinero necesitas?
-              </h2>
-              <div class="d-flex justify-content-center mb-4">
-                <span class="h4 mb-0 mt-2">$</span>
-                <span class="price h1 mb-0">{{ value }}</span>
-              </div>
-              <vue-slider v-model="value" min="1500" max="2000" />
-
-              <ul class="list-unstyled mb-0 pl-0">
-                <li class="h5 text-muted mb-0">
-                  <span class="text-primary h5 mr-2"></span>Cuota mensual por 6
-                  meses
-                </li>
-                <li class="h6 text-muted mb-0">
-                  <span class="text-primary h5 mr-2"></span>
-                  $ {{ (value * 0.03).toFixed(2) }}
-                </li>
-              </ul>
-              <a href="javascript:void(0)" class="btn btn-primary mt-4"
-                >¡Solicítalo Aquí!</a
-              >
-              <div class="h6 text-muted pt-4 ">
-                <span class="text-primary h6 mr-2"></span>
-                <div class="linea">
-                  <a href="javascript:void(0)">Ver términos y condiciones</a>
-                </div>
-                <div class="smalltext">
-                  *Ejemplo de cuota calculada para una línea de crédito de 5.000
-                  $ a pagar en 36 meses y con una retirada del importe
-                  seleccionado. ¡OJO! Te haremos una oferta personalizada, por
-                  lo que tu importe máximo, TAE, plazo de amortización, y cuota
-                  pueden ser distintos al del ejemplo.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--end row-->
-
-      <!--end container-->
-    </section>
     <!--end section-->
     <!-- Thinking End -->
 
     <!--end section-->
     <!-- Counter End -->
     <!-- Feature Start -->
-    <section class="section">
-      <div class="container">
+    <section class="section morepadding ">
+      <div class="container mobilepaddingfirstsection ">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
             <div class="section-title mb-4 pb-2">
-              <h2 class="title mb-4 titlesection ">¿Por qué elegir TeBanko?</h2>
-              <p class="text-muted para-desc mx-auto mb-0">
+              <h2 class=" mb-4 titlesection ">¿Por qué elegir TeBanko?</h2>
+              <p class="text-muted  mb-0 mobiletext ">
                 Es una entidad que ofrece préstamos 100% online, sin papeleo, ni
                 complicaciones
               </p>
@@ -138,11 +88,11 @@ export default {
 
         <div class="row">
           <div class="col-md-4 col-12 text-center">
-            <div class="features mt-5">
+            <div class="mt-5">
               <div class="image position-relative d-inline-block">
                 <img
-                  src="../../assets/img/iconos/laptop.svg"
-                  class="avatar avatar-small"
+                  src="../../assets/img/iconos/pcicontrans.png"
+                  class="avatar "
                   alt=""
                 />
               </div>
@@ -159,11 +109,11 @@ export default {
           <!--end col-->
 
           <div class="col-md-4 col-12 mt-5 text-center">
-            <div class="features">
+            <div class=" ">
               <div class="image position-relative d-inline-block">
                 <img
-                  src="../../assets/img/iconos/money.svg"
-                  class="avatar avatar-small"
+                  src="../../assets/img/iconos/atmtrans.png"
+                  class="avatar "
                   alt=""
                 />
               </div>
@@ -180,11 +130,11 @@ export default {
           <!--end col-->
 
           <div class="col-md-4 col-12 mt-5 text-center">
-            <div class="features">
+            <div class=" ">
               <div class="image position-relative d-inline-block">
                 <img
-                  src="../../assets/img/iconos/money-bag.svg"
-                  class="avatar avatar-small"
+                  src="../../assets/img/iconos/wallettrans.png"
+                  class="avatar "
                   alt=""
                 />
               </div>
@@ -217,8 +167,8 @@ export default {
         <div class="row  ">
           <div class="col-lg-5 col-md-6 order-1 order-md-2">
             <img
-              src="../../assets/img/compu1.jpg"
-              class="img-fluid rounded shadow-md img350 centerimg"
+              src="../../assets/img/tbkcoin.png"
+              class="img350 centerimg"
               alt=""
             />
           </div>
@@ -232,39 +182,41 @@ export default {
                 Requisitos básicos para solicitar tu préstamo
               </h3>
 
-              <ul class="list-unstyled text-muted">
-                <li class="mb-0">
-                  <span class="text-primary h5 mr-2"
-                    ><img
-                      class="smallarrow"
-                      src="../../assets/img/iconos/badge-check.svg"/></span
-                  >Tener ingresos regulares
-                </li>
-                <li class="mb-0">
-                  <span class="text-primary h5 mr-2"
-                    ><img
-                      class="smallarrow"
-                      src="../../assets/img/iconos/badge-check.svg"/></span
-                  >Respaldo de ingresos (AFP)
-                </li>
-                <li class="mb-0">
-                  <span class="text-primary h5 mr-2"
-                    ><img
-                      class="smallarrow"
-                      src="../../assets/img/iconos/badge-check.svg"/></span
-                  >Cuenta bancaria
-                </li>
-                <li class="mb-0">
-                  <span class="text-primary h5 mr-2"
-                    ><img
-                      class="smallarrow"
-                      src="../../assets/img/iconos/badge-check.svg"/></span
-                  >Ser mayor de edad
-                </li>
-              </ul>
-              <a class="btn btn-primary mt-2 mr-2 mouse-down"
-                ><i class="mdi mdi-camera"></i> Solicítalo Aquí!</a
-              >
+              <div class="smallpadleft">
+                <ul class="list-unstyled text-muted">
+                  <li class="mb-0">
+                    <span class="text-primary h5 mr-2"
+                      ><img
+                        class="smallarrow"
+                        src="../../assets/img/iconos/badge-check.svg"/></span
+                    >Tener ingresos regulares
+                  </li>
+                  <li class="mb-0">
+                    <span class="text-primary h5 mr-2"
+                      ><img
+                        class="smallarrow"
+                        src="../../assets/img/iconos/badge-check.svg"/></span
+                    >Respaldo de ingresos (AFP)
+                  </li>
+                  <li class="mb-0">
+                    <span class="text-primary h5 mr-2"
+                      ><img
+                        class="smallarrow"
+                        src="../../assets/img/iconos/badge-check.svg"/></span
+                    >Cuenta bancaria
+                  </li>
+                  <li class="mb-0">
+                    <span class="text-primary h5 mr-2"
+                      ><img
+                        class="smallarrow"
+                        src="../../assets/img/iconos/badge-check.svg"/></span
+                    >Ser mayor de edad
+                  </li>
+                </ul>
+                <a class="btn btn-primary mt-2 mr-2 mouse-down"
+                  ><i class="mdi mdi-camera"></i> Solicítalo Aquí!</a
+                >
+              </div>
             </div>
           </div>
           <!--end col-->
@@ -293,11 +245,6 @@ export default {
           <div class="col-md-4 col-12 text-center">
             <div class="card bg-light rounded shadow border-0 cardheight">
               <div class="card-body py-5">
-                <img
-                  src="../../assets/img/iconos/identity.svg"
-                  class="avatar avatar-md-sm"
-                  alt=""
-                />
                 <div class="mt-4">
                   <h5 class="card-title">
                     <h4 class="title-2">Completa tu formulario</h4>
@@ -306,6 +253,11 @@ export default {
                     Haz tu solicitud en tan sólo 8 minutos y 100% Online.
                   </p>
                 </div>
+                <img
+                  src="../../assets/img/iconos/halfshape1.png"
+                  class="avatar fit"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -314,11 +266,6 @@ export default {
           <div class="col-md-4 col-12 text-center">
             <div class="card bg-light rounded shadow border-0 cardheight">
               <div class="card-body py-5">
-                <img
-                  src="../../assets/img/iconos/paper.svg"
-                  class="avatar avatar-md-sm"
-                  alt=""
-                />
                 <div class="mt-4">
                   <h5 class="card-title">
                     <h4 class="title-2">Sin papeleo</h4>
@@ -328,6 +275,11 @@ export default {
                     obtener tu préstamo.
                   </p>
                 </div>
+                <img
+                  src="../../assets/img/iconos/halfshape2.png"
+                  class="avatar fit"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -336,11 +288,6 @@ export default {
           <div class="col-md-4 col-12 text-center">
             <div class="card bg-light rounded shadow border-0 cardheight">
               <div class="card-body py-5">
-                <img
-                  src="../../assets/img/iconos/piggy-bank.svg"
-                  class="avatar avatar-md-sm"
-                  alt=""
-                />
                 <div class="mt-4">
                   <h5 class="card-title">
                     <h4 class="title-2">Recibe dinero en tu cuenta</h4>
@@ -350,6 +297,11 @@ export default {
                     dinero directamente a tu cuenta.
                   </p>
                 </div>
+                <img
+                  src="../../assets/img/iconos/halfshape3.png"
+                  class="avatar fit"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -370,11 +322,12 @@ export default {
       <div class="container mt-100 mt-1">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
-            <div class="mb-4 pb-2">
-              <h1 class="title mb-4 ultimo">
-                Alcanza tus sueños <br />
-                con TeBanko
-              </h1>
+            <div class="mb-4 pb-4 mb-6">
+              <img
+                src="../../assets/img/iconos/motto.png"
+                class="avatar fit"
+                alt=""
+              />
             </div>
           </div>
           <!--end col-->
@@ -411,5 +364,97 @@ export default {
 
 .smallarrow {
   height: 25px;
+}
+
+.img350 {
+  height: 375px;
+}
+
+.cardheight {
+  height: 350px;
+}
+
+.footerlogo {
+  filter: brightness(0) invert(1);
+}
+
+.centerimg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ultimo {
+  font-size: 3.5rem;
+  padding-bottom: 40px;
+}
+
+.lesspaddingsection {
+  padding: 20px 0;
+}
+
+.titlesection {
+  letter-spacing: 0.5px;
+  font-size: 35px !important;
+}
+
+.linea {
+  text-decoration: underline;
+}
+
+.particles canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hashtag {
+  font-size: 18px;
+  color: #161c2d;
+}
+
+.VueCarousel-dot-container {
+  margin-top: 10px;
+}
+
+.VueCarousel-dot {
+  width: 10px !important;
+  height: 10px !important;
+  margin: 5px 7px !important;
+  border-radius: 3px !important;
+  transition: all 0.5s ease;
+  background: rgba(47, 85, 212, 0.5) !important;
+  padding: 0 !important;
+}
+
+.VueCarousel-dot:focus {
+  outline: none !important;
+}
+
+.VueCarousel-dot--active {
+  background-color: #2f55d4 !important;
+  transform: rotate(45deg);
+}
+
+.aligntoleft {
+  text-align: left;
+}
+
+.aligntoright {
+  text-align: right;
+}
+
+.figma-title {
+  font-weight: 700 !important;
+  font-size: 47px !important;
+}
+
+.fit {
+  max-width: 99%;
+  max-height: 99%;
+}
+
+.morepadding {
+  padding-top: 140px;
 }
 </style>

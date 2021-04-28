@@ -17,11 +17,13 @@ export default {
       <div class="container">
         <div class="row">
           <div class="col-md-4 col-12 text-center">
-            <a href="#" class="logo-footer">
-              <img src="images/logo-light.png" height="24" alt="" />
-            </a>
             <p class="mt-4 footerlogo">
-              <img src="../../assets/img/logo-tebanko.png" height="70" alt="" />
+              <img
+                src="../../assets/img/logo-tebanko.png"
+                height="70"
+                alt=""
+                class="makewhite"
+              />
             </p>
             <!-- <ul class="list-unstyled social-icon social mb-0 mt-4">
               <li class="list-inline-item">
@@ -54,24 +56,18 @@ export default {
           </div>
           <!--end col-->
 
-          <div class="col-md-4 col-12">
-            <h4 class="text-light footer-head">Ubicación y Contacto</h4>
+          <div class="col-md-4 col-12 mobilepadfooter">
+            <h3 class="text-light footer-head">Ubicación y Contacto</h3>
 
             <p class="mt-4">
-              <img
-                class="smalllogos"
-                src="../../assets/img/iconos/location.svg"
-              />
               Radial 27 entre 3er y 4to anillo. Entre calle Valdivia y calle N4
             </p>
 
             <p class="mt-4">
-              <img class="smalllogos" src="../../assets/img/iconos/call.svg" />
               +(00591) 767 - 85558
             </p>
 
             <p class="mt-4">
-              <img class="smalllogos" src="../../assets/img/iconos/mail.svg" />
               info@tebanko.com
             </p>
           </div>
@@ -105,3 +101,17 @@ export default {
     <!--end footer-->
   </div>
 </template>
+
+<style scoped>
+.smalllogos {
+  height: 35px;
+}
+
+.makewhite {
+  filter: brightness(0) invert(1);
+}
+
+h3 {
+  font-size: 25px !important;
+}
+</style>

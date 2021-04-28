@@ -41,7 +41,7 @@ export default {
 
 <template>
   <div class="col-md-4 col-12">
-    <h4 class="text-light footer-head">Información</h4>
+    <h3 class="text-light footer-head">Información</h3>
     <p class="mt-4">
       Déjanos tu correo electrónico para enterarte de las ofertas y productos
       que te ofrece TeBanko.
@@ -49,11 +49,10 @@ export default {
     <Form @submit="submit" :validation-schema="schema">
       <div class="row">
         <div class="col-lg-12">
-          <div class="foot-subscribe form-group position-relative">
-            <label
-              >Ingresa tu correo electrónico
-              <span class="text-danger">*</span></label
-            >
+          <div class=" form-group position-relative">
+            <h3 class="text-light footer-head">
+              Ingresa tu correo electrónico
+            </h3>
             <mail-icon class="fea icon-sm icons"></mail-icon>
             <Field
               type="email"
@@ -82,5 +81,9 @@ export default {
 <style scoped>
 .errorc {
   color: red;
+}
+
+h3 {
+  font-size: 25px !important;
 }
 </style>

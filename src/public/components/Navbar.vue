@@ -110,7 +110,7 @@ export default {
     <!-- Navbar STart -->
     <header
       id="topnav"
-      class="defaultscroll sticky"
+      class="defaultscroll sticky fit"
       :class="{ 'bg-white': isWhiteNavbar === true }"
     >
       <div class="container">
@@ -191,5 +191,9 @@ a {
 
 #topnav.scroll .navigation-menu > li > a {
   color: white;
+}
+
+.navright {
+  float: right;
 }
 </style>
