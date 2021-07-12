@@ -5,7 +5,7 @@ import router from "./router";
 import store from "./store";
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://192.168.0.18:3000/api/';
+axios.defaults.baseURL = 'http://192.168.0.8:3000/api/';
 
 
 

@@ -1,15 +1,12 @@
 <script>
 /**
- * Index-personal component
+ * Index-personal componentz
  */
-
 import ContactCard from '../components/ContactCard.vue';
-
 import CalculateCard from '../components/CalculateCard.vue';
 
 export default {
   name: 'Landing',
-
   components: { ContactCard, CalculateCard },
 };
 </script>
@@ -25,12 +22,13 @@ export default {
         <div class="row aligntoleft mobilepadding">
           <div class="col-lg-6">
             <div class="title-heading mt-4">
-              <h1 class="display-3  mb-3 figma-title">
-                Estamos contigo <br />
-                para ayudarte a <br />
-                alcanzar tus <br />
-                sueños.
+              <h1 class="display-3  mb-4 mt-4 figma-title">
+                ¡No te estanques <br />
+                por unos pesos! <br />
               </h1>
+              <h5>
+                Te damos un empujoncito económico, rápido y sin complicaciones.
+              </h5>
               <p class="para-desc font-weight-bold ">
                 #YoTeBanko
               </p>
@@ -39,9 +37,13 @@ export default {
                 la comodidad de tu hogar.
               </p>
               <div class="mt-4 pt-2">
-                <a class="btn btn-primary mt-2 mr-2 mouse-down"
-                  ><i class="mdi mdi-camera"></i> Solicítalo Aquí</a
-                >
+                <router-link to="/solicitud">
+                  <img
+                    src="../../assets/img/btnblue.png"
+                    class="greenbtn mt-4 zoom"
+                    alt=""
+                  />
+                </router-link>
                 <br />
               </div>
             </div>
@@ -70,13 +72,15 @@ export default {
     <!--end section-->
     <!-- Counter End -->
     <!-- Feature Start -->
-    <section class="section morepadding ">
-      <div class="container mobilepaddingfirstsection ">
+    <section class="section pt-200 bg-light ">
+      <div class="container mobilepaddingfirstsection fw-700">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
             <div class="section-title mb-4 pb-2">
-              <h2 class=" mb-4 titlesection ">¿Por qué elegir TeBanko?</h2>
-              <p class="text-muted  mb-0 mobiletext ">
+              <h2 class=" mb-4 titlesection titles">
+                ¿Por qué elegir TeBanko?
+              </h2>
+              <p class="text-muted subtitles mb-0 mobiletext ">
                 Es una entidad que ofrece préstamos 100% online, sin papeleo, ni
                 complicaciones
               </p>
@@ -87,49 +91,77 @@ export default {
         <!--end row-->
 
         <div class="row">
-          <div class="col-md-4 col-12 text-center">
-            <div class="mt-5">
-              <div class="image position-relative d-inline-block">
+          <div class="col-md-4 col-12 text-center mt-4">
+            <div
+              class="card veryrounded shadow blue-border white-bg heightfull"
+            >
+              <div class="card-body py-5">
                 <img
-                  src="../../assets/img/iconos/pcicontrans.png"
-                  class="avatar "
+                  src="../../assets/img/iconos/logofuncion1.png"
+                  class="avatar icon-300"
                   alt=""
                 />
-              </div>
-
-              <div class="content mt-4 ">
-                <h4 class="title-2">100% Online</h4>
-                <p class="text-muted mb-0">
-                  Solicita tu crédito de manera remota, cuando quieras, de donde
-                  quieras
-                </p>
+                <div class="mt-4">
+                  <h5 class="card-title">
+                    <h4 class="title-2">100% Online</h4>
+                  </h5>
+                  <p class="text-muted mt-3 mb-0">
+                    Solicita tu crédito de manera remota, cuando quieras, de
+                    donde quieras
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <!--end col-->
 
-          <div class="col-md-4 col-12 mt-5 text-center">
-            <div class=" ">
-              <div class="image position-relative d-inline-block">
+          <div class="col-md-4 col-12 text-center mt-4">
+            <div
+              class="card veryrounded shadow blue-border  white-bg heightfull "
+            >
+              <div class="card-body py-5">
                 <img
-                  src="../../assets/img/iconos/atmtrans.png"
-                  class="avatar "
+                  src="../../assets/img/iconos/logofuncion2.png"
+                  class="avatar icon-300"
                   alt=""
                 />
-              </div>
-
-              <div class="content mt-4">
-                <h4 class="title-2">Desembolso rápido</h4>
-                <p class="text-muted mb-0">
-                  Cuando su solicitud este aprobada, sus fondos serán enviados
-                  en menos de 24 horas
-                </p>
+                <div class="mt-4">
+                  <h5 class="card-title">
+                    <h4 class="title-2">Desembolso rápido</h4>
+                  </h5>
+                  <p class="text-muted mt-3 mb-0">
+                    Cuando su solicitud este aprobada, sus fondos serán enviados
+                    en menos de 24 horas
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+
+          <div class="col-md-4 col-12 text-center mt-4">
+            <div
+              class="card veryrounded shadow blue-border  white-bg heightfull"
+            >
+              <div class="card-body py-5">
+                <img
+                  src="../../assets/img/iconos/logofuncion3cut.png"
+                  class="avatar icon-300"
+                  alt=""
+                />
+                <div class="mt-4">
+                  <h5 class="card-title">
+                    <h4 class="title-2">Pagos flexibles</h4>
+                  </h5>
+                  <p class="text-muted mt-3 mb-0">
+                    Planes de pagos mensuales, cómodos y accesibles
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!--end col-->
 
-          <div class="col-md-4 col-12 mt-5 text-center">
+          <!-- <div class="col-md-4 col-12 mt-5 text-center">
             <div class=" ">
               <div class="image position-relative d-inline-block">
                 <img
@@ -146,7 +178,7 @@ export default {
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
           <!--end col-->
 
           <!--end col-->
@@ -158,7 +190,7 @@ export default {
     <!--end section-->
     <!-- End feature -->
 
-    <section class="section bg-light pt-1">
+    <section class="section pt-1">
       <!--end container-->
 
       <!--end container-->
@@ -167,8 +199,8 @@ export default {
         <div class="row  ">
           <div class="col-lg-5 col-md-6 order-1 order-md-2">
             <img
-              src="../../assets/img/tbkcoin.png"
-              class="img350 centerimg"
+              src="../../assets/img/iconos/puzzle.png"
+              class=" img350"
               alt=""
             />
           </div>
@@ -178,44 +210,51 @@ export default {
             class="col-lg-7 col-md-6 order-2 order-md-1 mt-4 mt-sm-0 pt-2 pt-sm-0 "
           >
             <div class="section-title ml-lg-4">
-              <h3 class="title mb-4">
+              <h3 class="title mb-4 requisitos">
                 Requisitos básicos para solicitar tu préstamo
               </h3>
 
-              <div class="smallpadleft">
-                <ul class="list-unstyled text-muted">
-                  <li class="mb-0">
+              <div class="">
+                <ul class="font-weight-bold pl-0">
+                  <li class="mb-0 list-unstyled">
                     <span class="text-primary h5 mr-2"
                       ><img
                         class="smallarrow"
-                        src="../../assets/img/iconos/badge-check.svg"/></span
+                        src="../../assets/img/iconos/greencheck.png"/></span
                     >Tener ingresos regulares
                   </li>
-                  <li class="mb-0">
+                  <li class="mb-0 list-unstyled">
                     <span class="text-primary h5 mr-2"
                       ><img
                         class="smallarrow"
-                        src="../../assets/img/iconos/badge-check.svg"/></span
+                        src="../../assets/img/iconos/greencheck.png"/></span
                     >Respaldo de ingresos (AFP)
                   </li>
-                  <li class="mb-0">
+                  <li class="mb-0 list-unstyled">
                     <span class="text-primary h5 mr-2"
                       ><img
                         class="smallarrow"
-                        src="../../assets/img/iconos/badge-check.svg"/></span
+                        src="../../assets/img/iconos/greencheck.png"/></span
                     >Cuenta bancaria
                   </li>
-                  <li class="mb-0">
+                  <li class="mb-0 list-unstyled">
                     <span class="text-primary h5 mr-2"
                       ><img
                         class="smallarrow"
-                        src="../../assets/img/iconos/badge-check.svg"/></span
+                        src="../../assets/img/iconos/greencheck.png"/></span
                     >Ser mayor de edad
                   </li>
                 </ul>
-                <a class="btn btn-primary mt-2 mr-2 mouse-down"
-                  ><i class="mdi mdi-camera"></i> Solicítalo Aquí!</a
-                >
+                <router-link to="/solicitud">
+                  <img
+                    src="../../assets/img/btnblue.png"
+                    class="greenbtn mt-4 zoom"
+                    alt=""
+                  />
+                </router-link>
+                <!-- <img
+                        class="smallarrow"
+                        src="../../assets/img/iconos/badge-check.svg"/> -->
               </div>
             </div>
           </div>
@@ -228,13 +267,15 @@ export default {
       <!--end container-->
     </section>
 
-    <section class="section lesspaddingsection">
+    <section class="section   bg-light">
       <!-- Features Start -->
-      <div class="container mt-100 mt-30">
+      <div class="container mt-40 mt-30">
         <div class="row justify-content-center">
           <div class="col-12 text-center">
             <div class="section-title mb-4 pb-2">
-              <h2 class="title mb-4 titlesection ">¿Cómo Funciona TeBanko?</h2>
+              <h2 class="title mb-4 titlesection titles">
+                ¿Cómo Funciona TeBanko?
+              </h2>
             </div>
           </div>
           <!--end col-->
@@ -242,10 +283,15 @@ export default {
         <!--end row-->
 
         <div class="row">
-          <div class="col-md-4 col-12 text-center">
-            <div class="card bg-light rounded shadow border-0 cardheight">
-              <div class="card-body py-5">
-                <div class="mt-4">
+          <div class="col-md-4 col-12 text-center mt-4">
+            <div class="veryrounded shadow  white-bg heightfull">
+              <div class="card-body py-5 pr-0 pl-0">
+                <img
+                  src="../../assets/img/iconos/grupologo1.png"
+                  class="avatar icon-300"
+                  alt=""
+                />
+                <div class="pt-4">
                   <h5 class="card-title">
                     <h4 class="title-2">Completa tu formulario</h4>
                   </h5>
@@ -253,20 +299,19 @@ export default {
                     Haz tu solicitud en tan sólo 8 minutos y 100% Online.
                   </p>
                 </div>
-                <img
-                  src="../../assets/img/iconos/halfshape1.png"
-                  class="avatar fit"
-                  alt=""
-                />
               </div>
             </div>
           </div>
-          <!--end col-->
 
-          <div class="col-md-4 col-12 text-center">
-            <div class="card bg-light rounded shadow border-0 cardheight">
-              <div class="card-body py-5">
-                <div class="mt-4">
+          <div class="col-md-4 col-12 text-center mt-4">
+            <div class="veryrounded shadow  white-bg heightfull">
+              <div class="card-body py-5 pr-0 pl-0">
+                <img
+                  src="../../assets/img/iconos/grupologo2.png"
+                  class="avatar icon-300"
+                  alt=""
+                />
+                <div class="pt-4">
                   <h5 class="card-title">
                     <h4 class="title-2">Sin papeleo</h4>
                   </h5>
@@ -275,20 +320,20 @@ export default {
                     obtener tu préstamo.
                   </p>
                 </div>
-                <img
-                  src="../../assets/img/iconos/halfshape2.png"
-                  class="avatar fit"
-                  alt=""
-                />
               </div>
             </div>
           </div>
           <!--end col-->
 
-          <div class="col-md-4 col-12 text-center">
-            <div class="card bg-light rounded shadow border-0 cardheight">
-              <div class="card-body py-5">
-                <div class="mt-4">
+          <div class="col-md-4 col-12 text-center mt-4">
+            <div class="veryrounded shadow  white-bg heightfull">
+              <div class="card-body py-5 pr-0 pl-0">
+                <img
+                  src="../../assets/img/iconos/grupologo3.png"
+                  class="avatar icon-300"
+                  alt=""
+                />
+                <div class="pt-4">
                   <h5 class="card-title">
                     <h4 class="title-2">Recibe dinero en tu cuenta</h4>
                   </h5>
@@ -297,14 +342,11 @@ export default {
                     dinero directamente a tu cuenta.
                   </p>
                 </div>
-                <img
-                  src="../../assets/img/iconos/halfshape3.png"
-                  class="avatar fit"
-                  alt=""
-                />
               </div>
             </div>
           </div>
+          <!--end col-->
+
           <!--end col-->
         </div>
         <!--end row-->
@@ -324,7 +366,7 @@ export default {
           <div class="col-12 text-center">
             <div class="mb-4 pb-4 mb-6">
               <img
-                src="../../assets/img/iconos/motto.png"
+                src="../../assets/img/iconos/mottook.png"
                 class="avatar fit"
                 alt=""
               />
@@ -368,6 +410,7 @@ export default {
 
 .img350 {
   height: 375px;
+  width: 100%;
 }
 
 .cardheight {
@@ -376,6 +419,10 @@ export default {
 
 .footerlogo {
   filter: brightness(0) invert(1);
+}
+
+.subtitles {
+  font-size: 20px;
 }
 
 .centerimg {
@@ -445,8 +492,9 @@ export default {
 }
 
 .figma-title {
-  font-weight: 700 !important;
-  font-size: 47px !important;
+  font-weight: 900 !important;
+  font-size: 60px !important;
+  color: #1c57df;
 }
 
 .fit {
@@ -454,7 +502,58 @@ export default {
   max-height: 99%;
 }
 
-.morepadding {
-  padding-top: 140px;
+.pt-200 {
+  padding-top: 200px;
+}
+
+.titles {
+  font-size: 50px !important;
+  font-weight: 900;
+  color: #666666;
+}
+
+.requisitos {
+  font-size: 50px !important;
+  font-weight: 600;
+}
+
+.fw-700 h4 {
+  font-weight: 700;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+.icon-300 {
+  height: 320px;
+  width: 100%;
+}
+
+.heightfull {
+  height: 100%;
+}
+
+.blue-border {
+  border-color: #2f55d4;
+}
+
+.greenbtn {
+  width: 250px;
+  height: auto;
+}
+
+.veryrounded {
+  border-radius: 40px;
+}
+
+.zoom {
+  transition: transform 0.5s; /* Animation */
+}
+
+.zoom:hover {
+  transform: scale(
+    1.2
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 </style>

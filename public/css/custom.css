@@ -1,12 +1,10 @@
-
-
 .backgroundhero {
-    background-image: url('../img/tebankocover2.png');
+    background-image: url('../img/head.png');
     height: 100vh;
     width: 100vw;
     position: relative;
     background-size: cover;
-    background-position: right 35% bottom 50%;
+    background-position: right 35% bottom 70%;
 }
 
 .bgform {
@@ -40,11 +38,11 @@ h2 {
       
     }
     .mobilepadding {
-        padding-top: 900px;
+        padding-top: 1100px;
     }
     
     .mobilepaddingfirstsection {
-        padding-top: 350px;
+        padding-top: 500px;
     }
 
     .mobilepadfooter 
@@ -62,7 +60,11 @@ h2 {
     }
 
     .mobilecardheight {
-        height: 1000px;
+        height: 120%;
+    }
+
+    .marginwhapp {
+        margin-bottom: 40px;
     }
 
   }

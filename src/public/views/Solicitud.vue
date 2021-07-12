@@ -4,6 +4,9 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as yup from 'yup';
 import { ref, reactive } from 'vue';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
+import UploadSingle from '../components/UploadSingle.vue';
 
 export default {
   name: 'App',
@@ -12,13 +15,15 @@ export default {
     Form,
     Field,
     ErrorMessage,
+    UploadSingle,
   },
   setup: () => {
     const currentStep = ref(0);
     const formValues = reactive({});
-
+    const router = useRouter();
     const picked = ref('');
-
+    const formreset = ref(null);
+    let danger = ref(true);
     const schema = yup.object().shape({
       nombreCompleto: yup.string().required('Porfavor rellenar este campo'),
       apellidos: yup.string().required('Porfavor rellenar este campo'),
@@ -130,6 +135,56 @@ export default {
       document.body.scrollTop = document.documentElement.scrollTop = 0;
     }
 
+    const submit = async () => {
+      try {
+        await axios.post('loanform', {
+          name: formValues.nombreCompleto,
+          lastName: formValues.apellidos,
+          birthDate: formValues.fechaNacimiento,
+          phone: formValues.telefono,
+          email: formValues.correoElectronico,
+          department: formValues.departamento,
+          incomeRange: formValues.rangoIngresos,
+          afpContribute: formValues.radioAportaAfp,
+          loanAmount: formValues.montoPrestamo,
+          acceptTerms: formValues.aceptoTerminos,
+          ciNumber: formValues.nroCarnet,
+          ciIssuedIn: formValues.carnetExpedidoEn,
+          nationality: formValues.nacionalidad,
+          ciExpireDate: formValues.fechaVencimientoCarnet,
+          birthPlace: formValues.lugarNacimiento,
+          civilStatus: formValues.estadoCivil,
+          personalAddress: formValues.direccionPersonal,
+          livingPlaceStatus: formValues.viviendaActual,
+          educationLevel: formValues.nivelEducacion,
+          referenceFamilyPhone: formValues.telefonoReferenciaFamiliar,
+          referenceFamilyName: formValues.nombreReferenciaFamiliar,
+          relationshipLevel: formValues.gradoParentesco,
+          companyName: formValues.nombreEmpresa,
+          companyPhone: formValues.telefonoEmpresa,
+          referenceWorkPhone: formValues.telefonoReferenciaLaboral,
+          companyIndustry: formValues.rubroEmpresa,
+          companySeniority: formValues.antiguedadLaboral,
+          incomeAmount: formValues.montoIngresoMensual,
+          companyPosition: formValues.cargoEmpresa,
+          companyAddress: formValues.direccionLaboral,
+          referenceWorkName: formValues.nombreReferenciaLaboral,
+          hasOwnEstates: formValues.radioTieneInmueblesPropios,
+          hasBankLoans: formValues.radioTieneDeudasBancarias,
+          hasCommercialLoans: formValues.radioTieneDeudasComerciales,
+          hasOwnVehicles: formValues.radioTieneVehiculosPropios,
+          loanReason: formValues.razonPrestamo,
+          acceptFinalTerms: formValues.aceptoFinalTerminos,
+        });
+        await formreset.value.resetForm();
+        router.push('/aceptado');
+        console.log('All is good.');
+      } catch (error) {
+        console.log(error);
+        danger.value = false;
+      }
+    };
+
     function prevStep() {
       if (currentStep.value <= 0) {
         return;
@@ -145,8 +200,12 @@ export default {
       onSubmit,
       nextStep,
       prevStep,
+      router,
       formValues,
       picked,
+      submit,
+      formreset,
+      danger,
     };
   },
 };
@@ -155,17 +214,21 @@ export default {
 <template>
   <div>
     <!-- Hero Start -->
-    <section class="bg-half bgform bg-light d-table w-100">
+    <section
+      class="bg-halfnew bg-light d-table w-100 bgwhite"
+      :class="{
+        bgform0: currentStep == 0,
+        bgform1: currentStep == 1,
+        bgform2: currentStep == 2,
+        bgform3: currentStep == 3,
+      }"
+    >
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-12 text-center">
             <div class="page-next-level">
               <div class="row aligntoleft">
-                <div class="col-lg-6">
-                  <h2 class="font-weight-bold h2form">
-                    Completa el formulario en minutos.
-                  </h2>
-                </div>
+                <div class="col-lg-6"></div>
                 <!--end col-->
               </div>
               <div class="page-next">
@@ -247,8 +310,10 @@ export default {
       </div>
     </div>
     <!--Shape End-->
+
     <Form
-      @submit="onSubmit"
+      ref="formreset"
+      @submit="submit"
       v-slot="{ handleSubmit }"
       :validation-schema="schema"
     >
@@ -551,14 +616,29 @@ export default {
                     <!--end row-->
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <input
+                        <!-- <input
                           @click="handleSubmit($event, nextStep)"
                           class="submitBnt btn btn-primary"
                           value="Continuar"
-                        />
+                        /> -->
+
+                        <button
+                          type="submit"
+                          class="transparentBtn"
+                          @click="handleSubmit($event, nextStep)"
+                        >
+                          <img
+                            src="../../assets/img/continuarblue.png"
+                            class="greenbtn mt-4"
+                            :class="{ hide: hideBtn }"
+                            value="Enviar Mensaje"
+                          />
+                        </button>
                       </div>
+
                       <!--end col-->
                     </div>
+
                     <!--end row-->
                   </div>
                   <!--end form-->
@@ -1080,18 +1160,43 @@ export default {
                     <!--end row-->
                     <div class="row">
                       <div class="col-sm-6 text-center">
-                        <input
+                        <!-- <input
                           @click="prevStep"
                           class="submitBnt btn btn-primary"
                           value="Regresar"
-                        />
+                        /> -->
+
+                        <button
+                          type="submit"
+                          class="transparentBtn"
+                          @click="prevStep"
+                        >
+                          <img
+                            src="../../assets/img/regresarblue.png"
+                            class="greenbtn mt-4"
+                            :class="{ hide: hideBtn }"
+                            value="Enviar Mensaje"
+                          />
+                        </button>
                       </div>
                       <div class="col-sm-6 text-center">
-                        <input
+                        <!-- <input
                           @click="handleSubmit($event, nextStep)"
                           class="submitBnt btn btn-primary"
                           value="Continuar"
-                        />
+                        /> -->
+                        <button
+                          type="submit"
+                          class="transparentBtn"
+                          @click="handleSubmit($event, nextStep)"
+                        >
+                          <img
+                            src="../../assets/img/continuarblue.png"
+                            class="greenbtn mt-4"
+                            :class="{ hide: hideBtn }"
+                            value="Enviar Mensaje"
+                          />
+                        </button>
                       </div>
                       <!--end col-->
                     </div>
@@ -1372,6 +1477,48 @@ export default {
                     <!--end row-->
                     <div class="row">
                       <div class="col-sm-6 text-center">
+                        <!-- <input
+                          @click="prevStep"
+                          class="submitBnt btn btn-primary"
+                          value="Regresar"
+                        /> -->
+
+                        <button
+                          type="submit"
+                          class="transparentBtn"
+                          @click="prevStep"
+                        >
+                          <img
+                            src="../../assets/img/regresarblue.png"
+                            class="greenbtn mt-4"
+                            :class="{ hide: hideBtn }"
+                            value="Enviar Mensaje"
+                          />
+                        </button>
+                      </div>
+                      <div class="col-sm-6 text-center">
+                        <!-- <input
+                          @click="handleSubmit($event, nextStep)"
+                          class="submitBnt btn btn-primary"
+                          value="Continuar"
+                        /> -->
+                        <button
+                          type="submit"
+                          class="transparentBtn"
+                          @click="handleSubmit($event, nextStep)"
+                        >
+                          <img
+                            src="../../assets/img/continuarblue.png"
+                            class="greenbtn mt-4"
+                            :class="{ hide: hideBtn }"
+                            value="Enviar Mensaje"
+                          />
+                        </button>
+                      </div>
+                      <!--end col-->
+                    </div>
+                    <!-- <div class="row">
+                      <div class="col-sm-6 text-center">
                         <input
                           @click="prevStep"
                           class="submitBnt btn btn-primary"
@@ -1385,8 +1532,8 @@ export default {
                           value="Continuar"
                         />
                       </div>
-                      <!--end col-->
-                    </div>
+                      
+                    </div> -->
                     <!--end row-->
                   </div>
                   <!--end form-->
@@ -1418,11 +1565,7 @@ export default {
                             quitarte las gafas /gorra y que se tiene que leer
                             claramente tu número de identificación.
                           </p>
-                          <input
-                            type="file"
-                            class="form-control-file"
-                            id="fileupload"
-                          />
+                          <UploadSingle />
                         </div>
                       </div>
                       <!--end col-->
@@ -1440,16 +1583,12 @@ export default {
                             cuenta que para que sea válido, debe estar
                             registrado a tu nombre.
                           </p>
-                          <input
-                            type="file"
-                            class="form-control-file"
-                            id="fileupload"
-                          />
+                          <UploadSingle />
                         </div>
                       </div>
                       <!--end col-->
                       <!--end col-->
-                      <div class="col-md-12">
+                      <!--  <div class="col-md-12">
                         <div class="form-group position-relative">
                           <label>Respalda tus ingresos :</label>
                           <p class="pinfo">
@@ -1468,7 +1607,7 @@ export default {
                             id="fileupload"
                           />
                         </div>
-                      </div>
+                      </div> -->
                       <!--end col-->
                       <!--end col-->
                       <!--end col-->
@@ -1554,20 +1693,53 @@ export default {
                     <!--end row-->
                     <div class="row">
                       <div class="col-sm-6 text-center">
-                        <input
+                        <!-- <input
                           @click="prevStep"
                           class="submitBnt btn btn-primary"
                           value="Regresar"
-                        />
+                        /> -->
+                        <button
+                          type="submit"
+                          class="transparentBtn"
+                          @click="prevStep"
+                        >
+                          <img
+                            src="../../assets/img/regresarblue.png"
+                            class="greenbtn mt-4"
+                            :class="{ hide: hideBtn }"
+                            value="Enviar Mensaje"
+                          />
+                        </button>
                       </div>
                       <div class="col-sm-6 text-center">
-                        <input
+                        <!-- <input
                           type="submit"
                           class="submitBnt btn btn-primary"
                           value="Finalizar"
-                        />
+                        /> -->
+                        <button type="submit" class="transparentBtn">
+                          <img
+                            src="../../assets/img/btnfinalizar.png"
+                            class="greenbtn mt-4"
+                            :class="{ hide: hideBtn }"
+                            value="Enviar Mensaje"
+                          />
+                        </button>
+                        <!-- <input
+                          type="submit"
+                          class="submitBnt btn btn-primary"
+                          value="Finalizar"
+                        /> -->
                       </div>
                       <!--end col-->
+                    </div>
+                    <div
+                      :class="{ hide: danger }"
+                      class="alert alert-danger text-center"
+                      role="alert"
+                    >
+                      Actualmente nos encontramos con errores de conexión.
+                      Porfavor intentar en otro momento.
                     </div>
                     <!--end row-->
                   </div>
@@ -1588,7 +1760,7 @@ export default {
 
 <style scoped>
 .bgcolor {
-  background-color: #202942;
+  background-color: #001b66;
 }
 
 .h2form {
@@ -1597,6 +1769,8 @@ export default {
 
 .errorc {
   color: red;
+  font-size: 15px;
+  font-weight: 800;
 }
 
 .terms {
@@ -1639,11 +1813,63 @@ h5 {
   color: #0056b3;
 }
 
+.transparentBtn {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.greenbtn {
+  width: 250px;
+  height: auto;
+}
+
 a {
   color: #3c4858;
 }
 
 .smallarrow {
   height: 25px;
+}
+
+.hide {
+  display: none;
+}
+
+.bgform0 {
+  background-image: url('../../assets/img/coverform1.png');
+
+  background-repeat: no-repeat;
+}
+
+.bgform1 {
+  background-image: url('../../assets/img/coverform2.png');
+
+  background-repeat: no-repeat;
+}
+
+.bgform2 {
+  background-image: url('../../assets/img/coverform3.png');
+
+  background-repeat: no-repeat;
+}
+
+.bgform3 {
+  background-image: url('../../assets/img/coverform4.png');
+
+  background-repeat: no-repeat;
+}
+
+.bg-halfnew {
+  padding: 330px 0 90px;
+
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  position: relative;
+  background-position: center center;
 }
 </style>

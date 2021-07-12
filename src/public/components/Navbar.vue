@@ -73,6 +73,10 @@ export default {
     /**
      * Toggle menu
      */
+    closeMenu() {
+      document.getElementById('navigation').style.display = 'none';
+    },
+
     toggleMenu() {
       this.isCondensed = !this.isCondensed;
       if (this.isCondensed) {
@@ -130,8 +134,11 @@ export default {
               class="l-light"
             />
           </router-link> -->
+
           <div class="logo" href="/" v-if="navLight !== true">
-            <img src="../../assets/img/logo-tebanko.png" height="45" alt="" />
+            <router-link to="/">
+              <img src="../../assets/img/logo-tebanko.png" height="45" alt="" />
+            </router-link>
           </div>
         </div>
 

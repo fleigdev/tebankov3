@@ -3,6 +3,7 @@ import Public from "../public/Public.vue";
 import Solicitud from "../public/views/Solicitud.vue";
 import Validacion from "../public/views/Validacion.vue";
 import Landing from "../public/views/Landing.vue";
+import Aceptado from "../public/views/Aceptado.vue";
 
 
 const routes = [
@@ -14,6 +15,7 @@ const routes = [
       {path: '', component: Landing },
       {path: '/solicitud', component: Solicitud },
       {path: '/validacion', component: Validacion},
+      {path: '/aceptado', component: Aceptado},
       
     ]
   },
